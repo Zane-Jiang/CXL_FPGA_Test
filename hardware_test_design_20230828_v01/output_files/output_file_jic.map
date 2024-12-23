@@ -1,0 +1,15 @@
+BLOCK                         START ADDRESS   END ADDRESS     
+
+BOOT_INFO                     0x00000000      0x001FFFFF
+P1                            0x00200000      0x0125AFFF
+
+
+Configuration device: AGIB027R29AR3
+Configuration mode: Active Serial x4
+
+
+Notes:
+
+- Data checksum for this conversion is 0x4A190A63
+
+- All the addresses in this file are byte addresses

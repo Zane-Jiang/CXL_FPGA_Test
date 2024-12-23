@@ -1,0 +1,216 @@
+22 serialization::archive 19 0 0 0 0 7 0 1 / 4 home 3 yue 4 work 4 f26a 33 cxltyp3_memexp_ddr4_top_22_4_0_94 33 hardware_test_design_20230828_v01 0 0 4 0 0 0 10 0 1 / 4 home 3 yue 5 tools 2 ip 6 altera 3 sld 4 jtag 20 altera_jtag_wys_atom 16 default_jtag.sdc 4220 # (C) 2001-2022 Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions and other 
+# software and tools, and its AMPP partner logic functions, and any output 
+# files from any of the foregoing (including device programming or simulation 
+# files), and any associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License Subscription 
+# Agreement, Intel FPGA IP License Agreement, or other applicable 
+# license agreement, including, without limitation, that your use is for the 
+# sole purpose of programming logic devices manufactured by Intel and sold by 
+# Intel or its authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+
+
+# This SDC is used to constrain a design containing logic driven by JTAG that is missing a clocking
+# constraint on altera_reserved_tck. This SDC will add a default constraint if none is present, and 
+# there are is at least one clock defined in the design.  We don't want to constrain altera_reserved_tck
+# when there are no defined clocks since altera_reserved_tck will then become the highest priority clock.
+# This will affect the place and route result of logic driven by other clocks in the design.
+
+namespace eval intel_reserved_jtag_default_constraints {
+
+    proc set_default_quartus_fit_timing_directive { } {
+        # A10 & S10 support max 33.3Mhz clock
+        set jtag_33Mhz_t_period 30
+        
+        create_clock -name {altera_reserved_tck} -period $jtag_33Mhz_t_period [get_ports {altera_reserved_tck}] 
+        set_clock_groups -asynchronous -group {altera_reserved_tck} 
+        # Force fitter to place register driving TDO pin to be as close to 
+        # the JTAG controller as possible to maximize the slack outside of FPGA.
+        if {$::TimeQuestInfo(family) == "Arria 10"} {
+            set_max_delay -to [get_ports { altera_reserved_tdo } ] 0
+        }
+        
+        # Declare false-paths for S10 JTAG Atom ( see HSD-ES:1408819417 )
+        if {$::TimeQuestInfo(family) == "Stratix 10"} {
+            set_false_path -from "*|atom_inst|atom~soc_sdm/padsig_io1.reg"
+            set_false_path -from "*|atom_inst|atom~soc_sdm/padsig_io1.reg__nff"
+        }
+        
+        # Set pessimistic input delays to properly establish timing relationship between tck and tms, tdi
+        set input_delay_period 0.5
+        set_input_delay -max -clock_fall -clock [get_clocks altera_reserved_tck] $input_delay_period [get_ports altera_reserved_tms]
+        set_input_delay -min -clock_fall -clock [get_clocks altera_reserved_tck] [expr {0 - $input_delay_period}] [get_ports altera_reserved_tms]    
+        set_input_delay -max -clock_fall -clock [get_clocks altera_reserved_tck] $input_delay_period [get_ports altera_reserved_tdi]
+        set_input_delay -min -clock_fall -clock [get_clocks altera_reserved_tck] [expr {0 - $input_delay_period}] [get_ports altera_reserved_tdi]
+    }
+
+    proc add_contraints_if_appropriate { } {
+        # Only constrain if the design contains user-declared clocks
+        set number_of_user_clocks [get_collection_size [all_clocks]]
+
+        if {$number_of_user_clocks > 0} {
+            # Only constrain if altera_reserved_tck has not already been constrained
+            set tck_ports [get_ports -nowarn altera_reserved_tck]
+            if {[get_collection_size $tck_ports] > 0} {
+                if {[get_collection_size [get_clocks -nowarn -of_objects $tck_ports]] == 0} {
+                    post_message -type info "Adding default timing constraints to JTAG signals.  This will help to achieve basic functionality since no such constraints were provided by the user."
+                    set_default_quartus_fit_timing_directive
+                }
+            }
+        }
+    }
+}
+
+# Only make these constraints for the fitter as they are hints, not suitable for timing sign-off
+if { [string equal quartus_fit $::TimeQuestInfo(nameofexecutable)] } {
+    # Define a different set of timing spec to influence place-and-route 
+    # result in the jtag clock domain. The slacks outside of FPGA are 
+    # maximized.
+    intel_reserved_jtag_default_constraints::add_contraints_if_appropriate
+}
+ 22 0 1 / 4 home 3 yue 4 work 4 f26a 33 cxltyp3_memexp_ddr4_top_22_4_0_94 33 hardware_test_design_20230828_v01 3 qdb 9 _compiler 23 cxltyp3_memexp_ddr4_top 5 _flat 6 22.4.0 11 partitioned 1 1 5 .temp 11 sld_fabrics 5 ipgen 13 alt_sld_fab_0 13 alt_sld_fab_0 28 altera_jtag_dc_streaming_191 5 synth 35 altera_avalon_st_jtag_interface.sdc 911 # (C) 2001-2022 Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions and other 
+# software and tools, and its AMPP partner logic functions, and any output 
+# files from any of the foregoing (including device programming or simulation 
+# files), and any associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License Subscription 
+# Agreement, Intel FPGA IP License Agreement, or other applicable 
+# license agreement, including, without limitation, that your use is for the 
+# sole purpose of programming logic devices manufactured by Intel and sold by 
+# Intel or its authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+
+
+set_false_path -from [get_registers *altera_jtag_src_crosser:*|sink_data_buffer*] -to [get_registers *altera_jtag_src_crosser:*|src_data*]
+ 22 0 1 / 4 home 3 yue 4 work 4 f26a 33 cxltyp3_memexp_ddr4_top_22_4_0_94 33 hardware_test_design_20230828_v01 3 qdb 9 _compiler 23 cxltyp3_memexp_ddr4_top 5 _flat 6 22.4.0 11 partitioned 1 1 5 .temp 11 sld_fabrics 5 ipgen 13 alt_sld_fab_0 13 alt_sld_fab_0 28 altera_reset_controller_1921 5 synth 27 altera_reset_controller.sdc 1620 # (C) 2001-2022 Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions and other 
+# software and tools, and its AMPP partner logic functions, and any output 
+# files from any of the foregoing (including device programming or simulation 
+# files), and any associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License Subscription 
+# Agreement, Intel FPGA IP License Agreement, or other applicable 
+# license agreement, including, without limitation, that your use is for the 
+# sole purpose of programming logic devices manufactured by Intel and sold by 
+# Intel or its authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+
+
+# +---------------------------------------------------
+# | Cut the async clear paths
+# +---------------------------------------------------
+set aclr_counter 0
+set clrn_counter 0
+set aclr_collection [get_pins -compatibility_mode -nocase -nowarn *|alt_rst_sync_uq1|altera_reset_synchronizer_int_chain*|aclr]
+set clrn_collection [get_pins -compatibility_mode -nocase -nowarn *|alt_rst_sync_uq1|altera_reset_synchronizer_int_chain*|clrn]
+set aclr_counter [get_collection_size $aclr_collection]
+set clrn_counter [get_collection_size $clrn_collection]
+
+if {$aclr_counter > 0} {
+    set_false_path -to [get_pins -compatibility_mode -nocase *|alt_rst_sync_uq1|altera_reset_synchronizer_int_chain*|aclr]
+}
+
+if {$clrn_counter > 0} {
+    set_false_path -to [get_pins -compatibility_mode -nocase *|alt_rst_sync_uq1|altera_reset_synchronizer_int_chain*|clrn]
+}
+ 22 0 1 / 4 home 3 yue 4 work 4 f26a 33 cxltyp3_memexp_ddr4_top_22_4_0_94 33 hardware_test_design_20230828_v01 3 qdb 9 _compiler 23 cxltyp3_memexp_ddr4_top 5 _flat 6 22.4.0 11 partitioned 1 1 5 .temp 11 sld_fabrics 5 ipgen 13 alt_sld_fab_0 13 alt_sld_fab_0 15 st_dc_fifo_1941 5 synth 41 alt_sld_fab_0_st_dc_fifo_1941_o3yoo7y.sdc 5852 # (C) 2001-2022 Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions and other 
+# software and tools, and its AMPP partner logic functions, and any output 
+# files from any of the foregoing (including device programming or simulation 
+# files), and any associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License Subscription 
+# Agreement, Intel FPGA IP License Agreement, or other applicable 
+# license agreement, including, without limitation, that your use is for the 
+# sole purpose of programming logic devices manufactured by Intel and sold by 
+# Intel or its authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+
+
+#-------------------------------------------------------------------------------
+# TimeQuest constraints to constrain the timing across asynchronous clock domain crossings.
+# The idea is to minimize skew to less than one launch clock period to keep the gray encoding, 
+# and to minimize latency on the pointer crossings.
+#
+# The paths are from the Gray Code read and write pointers to their respective synchronizer banks.
+#
+# *** Important note *** 
+#
+# Do not declare the FIFO clocks as asynchronous at the top level, or false path these crossings,
+# because that will override these constraints.
+#-------------------------------------------------------------------------------
+set all_dc_fifo [get_entity_instances alt_sld_fab_0_st_dc_fifo_1941_o3yoo7y]
+
+set_max_delay -from [get_registers {*|in_wr_ptr_gray[*]}] -to [get_registers {*|altera_dcfifo_synchronizer_bundle:write_crosser|altera_std_synchronizer_nocut:sync[*].u|din_s1}] 200
+set_min_delay -from [get_registers {*|in_wr_ptr_gray[*]}] -to [get_registers {*|altera_dcfifo_synchronizer_bundle:write_crosser|altera_std_synchronizer_nocut:sync[*].u|din_s1}] -200
+
+set_max_delay -from [get_registers {*|out_rd_ptr_gray[*]}] -to [get_registers {*|altera_dcfifo_synchronizer_bundle:read_crosser|altera_std_synchronizer_nocut:sync[*].u|din_s1}] 200
+set_min_delay -from [get_registers {*|out_rd_ptr_gray[*]}] -to [get_registers {*|altera_dcfifo_synchronizer_bundle:read_crosser|altera_std_synchronizer_nocut:sync[*].u|din_s1}] -200
+
+set_net_delay -max -get_value_from_clock_period dst_clock_period -value_multiplier 0.8 -from [get_pins -compatibility_mode {*|in_wr_ptr_gray[*]*}] -to [get_registers {*|altera_dcfifo_synchronizer_bundle:write_crosser|altera_std_synchronizer_nocut:sync[*].u|din_s1}] 
+set_net_delay -max -get_value_from_clock_period dst_clock_period -value_multiplier 0.8 -from [get_pins -compatibility_mode {*|out_rd_ptr_gray[*]*}] -to [get_registers {*|altera_dcfifo_synchronizer_bundle:read_crosser|altera_std_synchronizer_nocut:sync[*].u|din_s1}]
+
+
+foreach dc_fifo_inst $all_dc_fifo {
+   if { [ llength [query_collection -report -all [get_registers -nowarn $dc_fifo_inst|in_wr_ptr_gray[*]]]] > 0  } {
+      set_max_skew -get_skew_value_from_clock_period src_clock_period -skew_value_multiplier 0.8  -from [get_registers $dc_fifo_inst|in_wr_ptr_gray[*]] -to [get_registers $dc_fifo_inst|write_crosser|sync[*].u|din_s1] 
+   }
+
+   if { [ llength [query_collection -report -all [get_registers -nowarn $dc_fifo_inst|out_rd_ptr_gray[*]]]] > 0 } {
+      set_max_skew -get_skew_value_from_clock_period src_clock_period -skew_value_multiplier 0.8  -from [get_registers $dc_fifo_inst|out_rd_ptr_gray[*]] -to [get_registers $dc_fifo_inst|read_crosser|sync[*].u|din_s1] 
+   }
+}
+
+set aclr_collection_wr [get_pins -compatibility_mode -nocase -nowarn *|write_reset_sync|altera_reset_synchronizer_int_chain*|aclr]
+set clrn_collection_wr [get_pins -compatibility_mode -nocase -nowarn *|write_reset_sync|altera_reset_synchronizer_int_chain*|clrn]
+set aclr_counter_wr [get_collection_size $aclr_collection_wr]
+set clrn_counter_wr [get_collection_size $clrn_collection_wr]
+
+
+
+if {$aclr_counter_wr > 0} {
+set_false_path -to [get_pins -compatibility_mode -nocase *|write_reset_sync|altera_reset_synchronizer_int_chain*|aclr]
+}
+
+
+
+if {$clrn_counter_wr > 0} {
+set_false_path -to [get_pins -compatibility_mode -nocase *|write_reset_sync|altera_reset_synchronizer_int_chain*|clrn]
+}
+
+
+
+
+set aclr_collection_rd [get_pins -compatibility_mode -nocase -nowarn *|read_reset_sync|altera_reset_synchronizer_int_chain*|aclr]
+set clrn_collection_rd [get_pins -compatibility_mode -nocase -nowarn *|read_reset_sync|altera_reset_synchronizer_int_chain*|clrn]
+set aclr_counter_rd [get_collection_size $aclr_collection_rd]
+set clrn_counter_rd [get_collection_size $clrn_collection_rd]
+
+
+
+if {$aclr_counter_rd > 0} {
+set_false_path -to [get_pins -compatibility_mode -nocase *|read_reset_sync|altera_reset_synchronizer_int_chain*|aclr]
+}
+
+
+
+if {$clrn_counter_rd > 0} {
+set_false_path -to [get_pins -compatibility_mode -nocase *|read_reset_sync|altera_reset_synchronizer_int_chain*|clrn]
+}
+
+# add in timing constraints across asynchronous clock domain crossings for simple dual clock memory inference
+
+# -----------------------------------------------------------------------------
+# This procedure constrains the skew between the pointer bits, and should
+# be called from the top level SDC, once per instance of the FIFO.
+#
+# The hierarchy path to the FIFO instance is required as an 
+# argument.
+# -----------------------------------------------------------------------------
+proc constrain_altera_avalon_dc_fifo_ptr_skew { path } {
+
+    set_max_skew -get_skew_value_from_clock_period src_clock_period -skew_value_multiplier 0.8 -from [ get_registers $path|in_wr_ptr_gray\[*\] ] -to [ get_registers $path|write_crosser|sync\[*\].u|din_s1 ]
+    set_max_skew -get_skew_value_from_clock_period src_clock_period -skew_value_multiplier 0.8 -from [ get_registers $path|out_rd_ptr_gray\[*\] ] -to [ get_registers $path|read_crosser|sync\[*\].u|din_s1 ]
+
+}
+
+ 0

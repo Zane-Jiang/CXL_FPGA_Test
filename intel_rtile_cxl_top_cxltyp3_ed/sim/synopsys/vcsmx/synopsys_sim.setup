@@ -1,0 +1,17 @@
+
+WORK > DEFAULT
+DEFAULT:                        ./libraries/work/                          
+work:                           ./libraries/work/                          
+intel_rtile_cxl_ast_101:        ./libraries/intel_rtile_cxl_ast_101/       
+intel_rtile_cxl_top_170:        ./libraries/intel_rtile_cxl_top_170/       
+altera_iopll_1931:              ./libraries/altera_iopll_1931/             
+intel_rtile_cxl_top_cxltyp3_ed: ./libraries/intel_rtile_cxl_top_cxltyp3_ed/
+altera_ver:                     ./libraries/altera_ver/                    
+lpm_ver:                        ./libraries/lpm_ver/                       
+sgate_ver:                      ./libraries/sgate_ver/                     
+altera_mf_ver:                  ./libraries/altera_mf_ver/                 
+altera_lnsim_ver:               ./libraries/altera_lnsim_ver/              
+tennm_ver:                      ./libraries/tennm_ver/                     
+tennm_hssi_ver:                 ./libraries/tennm_hssi_ver/                
+tennm_hssi_f1_ver:              ./libraries/tennm_hssi_f1_ver/             
+tennm_hssi_r1_ver:              ./libraries/tennm_hssi_r1_ver/             

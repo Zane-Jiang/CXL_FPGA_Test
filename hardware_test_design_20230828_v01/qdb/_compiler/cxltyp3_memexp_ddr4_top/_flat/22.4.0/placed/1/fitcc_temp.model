@@ -1,0 +1,7 @@
+{
+	"type" : "fitcc_temp",
+	"trait" : "temp",
+	"temp_payload_path" : "",
+	"signature" : "2894d50a2c8d4adc2e2f882811c3de45",
+	"bak" : false
+}

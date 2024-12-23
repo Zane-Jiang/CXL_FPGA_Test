@@ -1,0 +1,308 @@
+Fitter Retime Stage Report for cxltyp3_memexp_ddr4_top
+Mon Aug 28 20:49:03 2023
+Quartus Prime Version 22.4.0 Build 94 12/07/2022 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Hyper-Retimer Settings
+  3. Reset Sequence Requirement
+  4. Retiming Limit Summary
+  5. Critical Chain Summary for Clock Domain cxl_ip.coreclkout_hip
+  6. Clock Domain ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_core_usr_clk (Meets timing requirements: No further analysis performed.)
+  7. Clock Domain ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_core_usr_clk (Meets timing requirements: No further analysis performed.)
+  8. Clock Domain cam_clk (Meets timing requirements: No further analysis performed.)
+  9. Clock Domain cxl_ip.pld_clkout_slow (Meets timing requirements: No further analysis performed.)
+ 10. Transfer from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_core_usr_clk to ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_phy_clk_l_0 (Meets timing requirements: No further analysis performed.)
+ 11. Transfer from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_core_usr_clk to ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_phy_clk_l_0 (Meets timing requirements: No further analysis performed.)
+ 12. Transfer from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_phy_clk_l_0 to ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_core_usr_clk (Meets timing requirements: No further analysis performed.)
+ 13. Transfer from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_phy_clk_l_0 to ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_core_usr_clk (Meets timing requirements: No further analysis performed.)
+ 14. Clock Domain sbr_clk (Meets timing requirements: No further analysis performed.)
+ 15. Transfer from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_core_usr_clk to ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_phy_clk_0 (Meets timing requirements: No further analysis performed.)
+ 16. Transfer from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_core_usr_clk to ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_phy_clk_0 (Meets timing requirements: No further analysis performed.)
+ 17. Transfer from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_ref_clock to cxl_ip.coreclkout_hip (Meets timing requirements: No further analysis performed.)
+ 18. Clock Domain altera_reserved_tck (Meets timing requirements: No further analysis performed.)
+ 19. Transfer from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_ref_clock to cxl_ip.coreclkout_hip (Meets timing requirements: No further analysis performed.)
+ 20. Transfer from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_phy_clk_0 to ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_core_usr_clk (Meets timing requirements: No further analysis performed.)
+ 21. Transfer from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_phy_clk_0 to ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_core_usr_clk (Meets timing requirements: No further analysis performed.)
+ 22. Retime Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2022  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++--------------------------------------------------+
+; Hyper-Retimer Settings                           ;
++------------------------+---------+---------------+
+; Option                 ; Setting ; Default Value ;
++------------------------+---------+---------------+
+; Enable Auto-Pipelining ; On      ; On            ;
++------------------------+---------+---------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Reset Sequence Requirement                                                                                                                                        ;
++-------------------------------------------------------------------------------------------------------------------------------------+-----------------------------+
+; Clock Name                                                                                                                          ; Number of additional cycles ;
++-------------------------------------------------------------------------------------------------------------------------------------+-----------------------------+
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_ref_clock                                  ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_vco_clk                                    ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_vco_clk_1                                  ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_vco_clk_2                                  ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_vco_clk_3                                  ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_core_usr_clk                               ; 2                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_phy_clk_0                                  ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_phy_clk_1                                  ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_phy_clk_2                                  ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_phy_clk_3                                  ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_phy_clk_l_0                                ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_phy_clk_l_1                                ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_phy_clk_l_2                                ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_phy_clk_l_3                                ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_wf_clk_0                                   ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_wf_clk_1                                   ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_wf_clk_2                                   ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_wf_clk_3                                   ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_wf_clk_4                                   ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_wf_clk_5                                   ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_wf_clk_6                                   ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_wf_clk_7                                   ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_wf_clk_8                                   ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_wf_clk_9                                   ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_wf_clk_10                                  ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_wf_clk_11                                  ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_wf_clk_12                                  ; 0                           ;
+; mem_dqs[0][0]_IN                                                                                                                    ; 0                           ;
+; mem_dqs[0][1]_IN                                                                                                                    ; 0                           ;
+; mem_dqs[0][2]_IN                                                                                                                    ; 0                           ;
+; mem_dqs[0][3]_IN                                                                                                                    ; 0                           ;
+; mem_dqs[0][4]_IN                                                                                                                    ; 0                           ;
+; mem_dqs[0][5]_IN                                                                                                                    ; 0                           ;
+; mem_dqs[0][6]_IN                                                                                                                    ; 0                           ;
+; mem_dqs[0][7]_IN                                                                                                                    ; 0                           ;
+; mem_dqs[0][8]_IN                                                                                                                    ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_ref_clock                                  ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_vco_clk                                    ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_vco_clk_1                                  ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_vco_clk_2                                  ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_vco_clk_3                                  ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_core_usr_clk                               ; 2                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_phy_clk_0                                  ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_phy_clk_1                                  ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_phy_clk_2                                  ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_phy_clk_3                                  ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_phy_clk_l_0                                ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_phy_clk_l_1                                ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_phy_clk_l_2                                ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_phy_clk_l_3                                ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_wf_clk_0                                   ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_wf_clk_1                                   ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_wf_clk_2                                   ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_wf_clk_3                                   ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_wf_clk_4                                   ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_wf_clk_5                                   ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_wf_clk_6                                   ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_wf_clk_7                                   ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_wf_clk_8                                   ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_wf_clk_9                                   ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_wf_clk_10                                  ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_wf_clk_11                                  ; 0                           ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_wf_clk_12                                  ; 0                           ;
+; mem_dqs[1][0]_IN                                                                                                                    ; 0                           ;
+; mem_dqs[1][1]_IN                                                                                                                    ; 0                           ;
+; mem_dqs[1][2]_IN                                                                                                                    ; 0                           ;
+; mem_dqs[1][3]_IN                                                                                                                    ; 0                           ;
+; mem_dqs[1][4]_IN                                                                                                                    ; 0                           ;
+; mem_dqs[1][5]_IN                                                                                                                    ; 0                           ;
+; mem_dqs[1][6]_IN                                                                                                                    ; 0                           ;
+; mem_dqs[1][7]_IN                                                                                                                    ; 0                           ;
+; mem_dqs[1][8]_IN                                                                                                                    ; 0                           ;
+; refclk0                                                                                                                             ; 0                           ;
+; refclk1                                                                                                                             ; 0                           ;
+; cxl_ip.ref_clock_ch15                                                                                                               ; 0                           ;
+; cxl_ip.coreclkout_hip                                                                                                               ; 7                           ;
+; cxl_ip.ref_clock_ch12                                                                                                               ; 0                           ;
+; cxl_ip.pld_clkout_slow                                                                                                              ; 0                           ;
+; intel_rtile_cxl_top_inst|intel_rtile_cxl_top_0|cxl_memexp_sip_top|gen_clkrst|cxl_memexp_sip_clkgen|rnr_ial_sip_clkgen_pll_refclk    ; 0                           ;
+; intel_rtile_cxl_top_inst|intel_rtile_cxl_top_0|cxl_memexp_sip_top|gen_clkrst|cxl_memexp_sip_clkgen|rnr_ial_sip_clkgen_pll_n_cnt_clk ; 0                           ;
+; intel_rtile_cxl_top_inst|intel_rtile_cxl_top_0|cxl_memexp_sip_top|gen_clkrst|cxl_memexp_sip_clkgen|rnr_ial_sip_clkgen_pll_m_cnt_clk ; 0                           ;
+; sbr_clk                                                                                                                             ; 0                           ;
+; cam_clk                                                                                                                             ; 0                           ;
+; internal_clk                                                                                                                        ; 0                           ;
+; altera_reserved_tck                                                                                                                 ; 0                           ;
++-------------------------------------------------------------------------------------------------------------------------------------+-----------------------------+
+Note: Due to retiming optimizations, a clock domain may require a longer reset sequence to ensure correct functionality.  The table above indicates the minimum number of additional reset sequence cycles needed for each clock domain.
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Retiming Limit Summary                                                                                                                                                                                                                                                                                                                                                         ;
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+--------------------------------------------------------------------------------------+
+; Clock Transfer                                                                                                                                                                                                              ; Limiting Reason                                           ; Recommendation                                                                       ;
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+--------------------------------------------------------------------------------------+
+; Clock Domain cxl_ip.coreclkout_hip                                                                                                                                                                                          ; Path Limit                                                ; None. Retiming has used all available register locations in the critical chain path. ;
+;                                                                                                                                                                                                                             ;                                                           ;    Performance cannot be increased through retiming/Fast Forward analysis alone.     ;
+;                                                                                                                                                                                                                             ;                                                           ;    Increased clock speed may be possible through other optimization techniques.      ;
+; Clock Domain ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_core_usr_clk                                                                                                          ; Meets timing requirements: No further analysis performed. ; None                                                                                 ;
+; Clock Domain ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_core_usr_clk                                                                                                          ; Meets timing requirements: No further analysis performed. ; None                                                                                 ;
+; Clock Domain cam_clk                                                                                                                                                                                                        ; Meets timing requirements: No further analysis performed. ; None                                                                                 ;
+; Clock Domain cxl_ip.pld_clkout_slow                                                                                                                                                                                         ; Meets timing requirements: No further analysis performed. ; None                                                                                 ;
+; Transfer from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_core_usr_clk to ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_phy_clk_l_0 ; Meets timing requirements: No further analysis performed. ; None                                                                                 ;
+; Transfer from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_core_usr_clk to ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_phy_clk_l_0 ; Meets timing requirements: No further analysis performed. ; None                                                                                 ;
+; Transfer from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_phy_clk_l_0 to ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_core_usr_clk ; Meets timing requirements: No further analysis performed. ; None                                                                                 ;
+; Transfer from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_phy_clk_l_0 to ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_core_usr_clk ; Meets timing requirements: No further analysis performed. ; None                                                                                 ;
+; Clock Domain sbr_clk                                                                                                                                                                                                        ; Meets timing requirements: No further analysis performed. ; None                                                                                 ;
+; Transfer from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_core_usr_clk to ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_phy_clk_0   ; Meets timing requirements: No further analysis performed. ; None                                                                                 ;
+; Transfer from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_core_usr_clk to ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_phy_clk_0   ; Meets timing requirements: No further analysis performed. ; None                                                                                 ;
+; Transfer from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_ref_clock to cxl_ip.coreclkout_hip                                                                                   ; Meets timing requirements: No further analysis performed. ; None                                                                                 ;
+; Clock Domain altera_reserved_tck                                                                                                                                                                                            ; Meets timing requirements: No further analysis performed. ; None                                                                                 ;
+; Transfer from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_ref_clock to cxl_ip.coreclkout_hip                                                                                   ; Meets timing requirements: No further analysis performed. ; None                                                                                 ;
+; Transfer from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_phy_clk_0 to ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_core_usr_clk   ; Meets timing requirements: No further analysis performed. ; None                                                                                 ;
+; Transfer from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_phy_clk_0 to ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_core_usr_clk   ; Meets timing requirements: No further analysis performed. ; None                                                                                 ;
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+--------------------------------------------------------------------------------------+
+
+
+Critical Chain Summary for Clock Domain cxl_ip.coreclkout_hip
+===============================================================================
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Recommendations for Critical Chain                                                                                                                                                                                                                                 ;
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Recommendation                                                                                                                                                                                                                                                     ;
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; The critical chain is limited by: Path Limit                                                                                                                                                                                                                       ;
+;                                                                                                                                                                                                                                                                    ;
+; None. Retiming has used all available register locations in the critical chain path.                                                                                                                                                                               ;
+;    Performance cannot be increased through retiming/Fast Forward analysis alone.                                                                                                                                                                                   ;
+;    Increased clock speed may be possible through other optimization techniques.                                                                                                                                                                                    ;
+;                                                                                                                                                                                                                                                                    ;
+; Retiming Restriction: Not fully registered RAM                                                                                                                                                                                                                     ;
+;   ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_REG_RSP_FIFO[1].rspfifo_inst|fifo_0|dcfifo_component|auto_generated|fifo_altera_syncram|altera_syncram_impl1|ram_block2a49                                                                     ;
+;     Insert more pipeline stages after the RAM block to allow better register packing.                                                                                                                                                                              ;
+;     Review Fitter Report: RAM Summary                                                                                                                                                                                                                              ;
+;    Refer to <a href='https://www.intel.com/content/www/us/en/docs/programmable/683353/current/hyper-pipelining-add-pipeline-registers.html'>Hyper-Pipelining</a> in the <i>Intel Hyperflex Architecture High-Performance Design Handbook</i> for more information. ;
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Critical Chain Details                                                                                                                                                                                                                                                           ;
++----------------------+----------------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Path Info            ; Register       ; Register ID ; Element                                                                                                                                                                                                                    ;
++----------------------+----------------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Long Path (Critical) ; REG (RAM)      ; #1          ; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_REG_RSP_FIFO[1].rspfifo_inst|fifo_0|dcfifo_component|auto_generated|fifo_altera_syncram|altera_syncram_impl1|ram_block2a49~reg1                          ;
+; Long Path (Critical) ;                ;             ; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_REG_RSP_FIFO[1].rspfifo_inst|fifo_0|dcfifo_component|auto_generated|fifo_altera_syncram|altera_syncram_impl1|ram_block2a49|portbdataout[0]               ;
+; Long Path (Critical) ;                ;             ; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_REG_RSP_FIFO[1].rspfifo_inst|fifo_0|dcfifo_component|auto_generated|fifo_altera_syncram|altera_syncram_impl1|ram_block2a49~MEDIUM_EAB_RE_X189_Y55_N0_I93 ;
+; Long Path (Critical) ;                ;             ; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_REG_RSP_FIFO[1].rspfifo_inst|fifo_0|dcfifo_component|auto_generated|fifo_altera_syncram|altera_syncram_impl1|ram_block2a49~R1_X189_Y55_N0_I10            ;
+; Long Path (Critical) ;                ;             ; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_REG_RSP_FIFO[1].rspfifo_inst|fifo_0|dcfifo_component|auto_generated|fifo_altera_syncram|altera_syncram_impl1|ram_block2a49~R4_X185_Y55_N0_I2             ;
+; Long Path (Critical) ;                ;             ; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_REG_RSP_FIFO[1].rspfifo_inst|fifo_0|dcfifo_component|auto_generated|fifo_altera_syncram|altera_syncram_impl1|ram_block2a49~R4_X181_Y55_N0_I2             ;
+; Long Path (Critical) ;                ;             ; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_REG_RSP_FIFO[1].rspfifo_inst|fifo_0|dcfifo_component|auto_generated|fifo_altera_syncram|altera_syncram_impl1|ram_block2a49~R4_X177_Y55_N0_I2             ;
+; Long Path (Critical) ;                ;             ; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_REG_RSP_FIFO[1].rspfifo_inst|fifo_0|dcfifo_component|auto_generated|fifo_altera_syncram|altera_syncram_impl1|ram_block2a49~R4_X173_Y55_N0_I2             ;
+; Long Path (Critical) ;                ;             ; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_REG_RSP_FIFO[1].rspfifo_inst|fifo_0|dcfifo_component|auto_generated|fifo_altera_syncram|altera_syncram_impl1|ram_block2a49~R4_X169_Y55_N0_I2             ;
+; Long Path (Critical) ;                ;             ; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_REG_RSP_FIFO[1].rspfifo_inst|fifo_0|dcfifo_component|auto_generated|fifo_altera_syncram|altera_syncram_impl1|ram_block2a49~R4_X165_Y55_N0_I2             ;
+; Long Path (Critical) ;                ;             ; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_REG_RSP_FIFO[1].rspfifo_inst|fifo_0|dcfifo_component|auto_generated|fifo_altera_syncram|altera_syncram_impl1|ram_block2a49~R4_X161_Y55_N0_I2             ;
+; Long Path (Critical) ;                ;             ; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_REG_RSP_FIFO[1].rspfifo_inst|fifo_0|dcfifo_component|auto_generated|fifo_altera_syncram|altera_syncram_impl1|ram_block2a49~C1_X160_Y55_N0_I10            ;
+; Long Path (Critical) ;                ;             ; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_REG_RSP_FIFO[1].rspfifo_inst|fifo_0|dcfifo_component|auto_generated|fifo_altera_syncram|altera_syncram_impl1|ram_block2a49~C4_X160_Y56_N0_I10_dff.d      ;
+; Long Path (Critical) ; Hyper-Register ; #2          ; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_REG_RSP_FIFO[1].rspfifo_inst|fifo_0|dcfifo_component|auto_generated|fifo_altera_syncram|altera_syncram_impl1|ram_block2a49~C4_X160_Y56_N0_I10_dff        ;
++----------------------+----------------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
+
+Clock Domain ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_core_usr_clk (Meets timing requirements: No further analysis performed.)
+===============================================================================
+
+
+Clock Domain ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_core_usr_clk (Meets timing requirements: No further analysis performed.)
+===============================================================================
+
+
+Clock Domain cam_clk (Meets timing requirements: No further analysis performed.)
+===============================================================================
+
+
+Clock Domain cxl_ip.pld_clkout_slow (Meets timing requirements: No further analysis performed.)
+===============================================================================
+
+
+Transfer from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_core_usr_clk to ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_phy_clk_l_0 (Meets timing requirements: No further analysis performed.)
+===============================================================================
+
+
+Transfer from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_core_usr_clk to ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_phy_clk_l_0 (Meets timing requirements: No further analysis performed.)
+===============================================================================
+
+
+Transfer from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_phy_clk_l_0 to ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_core_usr_clk (Meets timing requirements: No further analysis performed.)
+===============================================================================
+
+
+Transfer from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_phy_clk_l_0 to ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_core_usr_clk (Meets timing requirements: No further analysis performed.)
+===============================================================================
+
+
+Clock Domain sbr_clk (Meets timing requirements: No further analysis performed.)
+===============================================================================
+
+
+Transfer from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_core_usr_clk to ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_phy_clk_0 (Meets timing requirements: No further analysis performed.)
+===============================================================================
+
+
+Transfer from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_core_usr_clk to ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_phy_clk_0 (Meets timing requirements: No further analysis performed.)
+===============================================================================
+
+
+Transfer from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_ref_clock to cxl_ip.coreclkout_hip (Meets timing requirements: No further analysis performed.)
+===============================================================================
+
+
+Clock Domain altera_reserved_tck (Meets timing requirements: No further analysis performed.)
+===============================================================================
+
+
+Transfer from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_ref_clock to cxl_ip.coreclkout_hip (Meets timing requirements: No further analysis performed.)
+===============================================================================
+
+
+Transfer from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_phy_clk_0 to ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_core_usr_clk (Meets timing requirements: No further analysis performed.)
+===============================================================================
+
+
+Transfer from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_phy_clk_0 to ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_core_usr_clk (Meets timing requirements: No further analysis performed.)
+===============================================================================
+
+
++-----------------+
+; Retime Messages ;
++-----------------+
+Info (20032): Parallel compilation is enabled and will use up to 16 processors
+Info: *******************************************************************
+Info: Running Quartus Prime Fitter
+    Info: Version 22.4.0 Build 94 12/07/2022 SC Pro Edition
+    Info: Processing started: Mon Aug 28 17:37:48 2023
+    Info: System process ID: 31532
+Info: Command: quartus_fit --read_settings_files=on --write_settings_files=off cxltyp3_memexp_ddr4_top -c cxltyp3_memexp_ddr4_top
+Info: qfit2_default_script.tcl version: #1
+Info: Project  = cxltyp3_memexp_ddr4_top
+Info: Revision = cxltyp3_memexp_ddr4_top
+Info (17966): Starting Hyper-Retimer operations.
+Info (17968): Completed Hyper-Retimer operations.
+Info (18821): Fitter Hyper-Retimer operations ending: elapsed time is 00:04:35
+
+

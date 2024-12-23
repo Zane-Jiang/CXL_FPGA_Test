@@ -1,0 +1,86 @@
+Fitter Finalize Stage Report for cxltyp3_memexp_ddr4_top
+Mon Aug 28 20:55:23 2023
+Quartus Prime Version 22.4.0 Build 94 12/07/2022 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Routing Usage Summary
+  3. Finalize Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2022  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++---------------------------------------------------------------+
+; Routing Usage Summary                                         ;
++-----------------------------+---------------------------------+
+; Routing Resource Type       ; Usage                           ;
++-----------------------------+---------------------------------+
+; Block Input Mux Wrapbacks   ; 825 / 964,320 ( < 1 % )         ;
+; Block Input Muxes           ; 1,262,017 / 10,561,600 ( 12 % ) ;
+; Block interconnects         ; 960,285 / 12,385,280 ( 8 % )    ;
+; C1 interconnects            ; 526,459 / 5,173,760 ( 10 % )    ;
+; C4 interconnects            ; 388,775 / 4,933,120 ( 8 % )     ;
+; C8 interconnects            ; 44,525 / 493,312 ( 9 % )        ;
+; DCM_muxes                   ; 54 / 1,152 ( 5 % )              ;
+; DELAY_CHAINs                ; 65 / 32,048 ( < 1 % )           ;
+; Direct links                ; 115,730 / 12,385,280 ( < 1 % )  ;
+; HIO Buffers                 ; 1,922 / 73,472 ( 3 % )          ;
+; Programmable Invert Buffers ; 64 / 560 ( 11 % )               ;
+; Programmable Invert Inputs  ; 41,108 / 932,160 ( 4 % )        ;
+; Programmable Inverts        ; 41,108 / 932,160 ( 4 % )        ;
+; R0 interconnects            ; 637,068 / 8,632,960 ( 7 % )     ;
+; R1 interconnects            ; 389,839 / 4,933,120 ( 8 % )     ;
+; R12 interconnects           ; 24,592 / 739,968 ( 3 % )        ;
+; R2 interconnects            ; 174,672 / 2,473,120 ( 7 % )     ;
+; R4 interconnects            ; 156,227 / 2,486,240 ( 6 % )     ;
+; R6 interconnects            ; 228,637 / 2,492,800 ( 9 % )     ;
+; Redundancy Muxes            ; 3,567 / 145,648 ( 2 % )         ;
+; Row Clock Tap-Offs          ; 33,425 / 739,968 ( 5 % )        ;
+; Switchbox_clock_muxes       ; 315 / 23,040 ( 1 % )            ;
+; VIO Buffers                 ; 1,173 / 22,400 ( 5 % )          ;
+; Vertical_seam_tap_muxes     ; 300 / 12,288 ( 2 % )            ;
++-----------------------------+---------------------------------+
+
+
++-------------------+
+; Finalize Messages ;
++-------------------+
+Info (20032): Parallel compilation is enabled and will use up to 16 processors
+Info: *******************************************************************
+Info: Running Quartus Prime Fitter
+    Info: Version 22.4.0 Build 94 12/07/2022 SC Pro Edition
+    Info: Processing started: Mon Aug 28 17:37:48 2023
+    Info: System process ID: 31532
+Info: Command: quartus_fit --read_settings_files=on --write_settings_files=off cxltyp3_memexp_ddr4_top -c cxltyp3_memexp_ddr4_top
+Info: qfit2_default_script.tcl version: #1
+Info: Project  = cxltyp3_memexp_ddr4_top
+Info: Revision = cxltyp3_memexp_ddr4_top
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 100 degrees C
+Info (18258): Fitter Physical Synthesis operations beginning
+Info (18259): Fitter Physical Synthesis operations ending: elapsed time is 00:01:19
+Info (16557): Fitter post-fit operations ending: elapsed time is 00:05:50
+
+

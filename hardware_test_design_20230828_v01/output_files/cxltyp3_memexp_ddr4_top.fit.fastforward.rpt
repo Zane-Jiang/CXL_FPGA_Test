@@ -1,0 +1,619 @@
+Fitter Fastforward Stage Report for cxltyp3_memexp_ddr4_top
+Mon Aug 28 21:04:22 2023
+Quartus Prime Version 22.4.0 Build 94 12/07/2022 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Summary
+  3. Settings
+  4. Clock Fmax Summary
+  5. Clock Worst-Case Slack Summary
+  6. Fast Forward Summary for Clock Domain ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_core_usr_clk
+  7. Critical Chain for Base Result
+  8. Meets timing requirements: No further analysis performed.
+  9. Fast Forward Summary for Clock Domain cxl_ip.coreclkout_hip
+ 10. Critical Chain for Base Result
+ 11. Meets timing requirements: No further analysis performed.
+ 12. Fast Forward Summary for Clock Domain ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_core_usr_clk
+ 13. Critical Chain for Base Result
+ 14. Meets timing requirements: No further analysis performed.
+ 15. Fast Forward Summary for Clock Domain cam_clk
+ 16. Critical Chain for Base Result
+ 17. Meets timing requirements: No further analysis performed.
+ 18. Fast Forward Summary for Clock Domain cxl_ip.pld_clkout_slow
+ 19. Critical Chain for Base Result
+ 20. Meets timing requirements: No further analysis performed.
+ 21. Fast Forward Summary for Clock Domain sbr_clk
+ 22. Critical Chain for Base Result
+ 23. Meets timing requirements: No further analysis performed.
+ 24. Fast Forward Summary for Clock Domain altera_reserved_tck
+ 25. Critical Chain for Base Result
+ 26. Meets timing requirements: No further analysis performed.
+ 27. Fastforward Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2022  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------+
+; Summary                                                           ;
++-----------------------+-------------------------------------------+
+; Fast Forward Status   ; Successful - Mon Aug 28 21:04:21 2023     ;
+; Quartus Prime Version ; 22.4.0 Build 94 12/07/2022 SC Pro Edition ;
+; Revision Name         ; cxltyp3_memexp_ddr4_top                   ;
+; Top-level Entity Name ; cxltyp3_memexp_ddr4_top                   ;
+; Family                ; Agilex                                    ;
+; Device                ; AGIB027R29A1E2VR3                         ;
++-----------------------+-------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Settings                                                                                          ;
++-------------------------------------------------------------------------+---------+---------------+
+; Option                                                                  ; Setting ; Default Value ;
++-------------------------------------------------------------------------+---------+---------------+
+; Enable Hyper-Retimer Fast Forward analysis during compilation           ; On      ; Off           ;
+; Enable Hyper-Retimer Fast Forward Hierarchy analysis during compilation ; On      ; On            ;
+; Fast Forward Compile Maximum Additional Pipeline Stages                 ; -1      ; -1            ;
+; Fast Forward Compile Asynchronous Clears                                ; Auto    ; Auto          ;
+; Fast Forward Compile User Preserve Directives                           ; Auto    ; Auto          ;
+; Fast Forward Compile Fully Register DSP blocks                          ; On      ; On            ;
+; Fast Forward Compile Fully Register RAM blocks                          ; On      ; On            ;
+; Enable Critical Chain Viewer                                            ; On      ; On            ;
++-------------------------------------------------------------------------+---------+---------------+
+To turn on Fast Forward analysis during Quartus compilation, edit the setting in the HyperFlex settings menu in the Quartus GUI or set_global_assignment -name FLOW_ENABLE_HYPER_RETIMER_FAST_FORWARD ON in your QSF
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Fmax Summary                                                                                                                                                                                                                   ;
++-------------------------------------------------------------------------------------------------------+---------+------------------------------+--------------------------------+----------------------------------+-----------------+
+; Clock Name                                                                                            ; Fmax    ; Achieved with Hyper-Retiming ; Achieved with Hyper-Pipelining ; Achieved with Hyper-Optimization ; Restricted Fmax ;
++-------------------------------------------------------------------------------------------------------+---------+------------------------------+--------------------------------+----------------------------------+-----------------+
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_core_usr_clk ; 319 MHz ; 319 MHz                      ; 319 MHz                        ; 319 MHz                          ; 319 MHz         ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_core_usr_clk ; 319 MHz ; 319 MHz                      ; 319 MHz                        ; 319 MHz                          ; 319 MHz         ;
+; cxl_ip.coreclkout_hip                                                                                 ; 435 MHz ; 435 MHz                      ; 435 MHz                        ; 435 MHz                          ; 435 MHz         ;
+; sbr_clk                                                                                               ; 189 MHz ; 189 MHz                      ; 189 MHz                        ; 189 MHz                          ; 189 MHz         ;
+; cam_clk                                                                                               ; 169 MHz ; 169 MHz                      ; 169 MHz                        ; 169 MHz                          ; 169 MHz         ;
+; cxl_ip.pld_clkout_slow                                                                                ; 329 MHz ; 329 MHz                      ; 329 MHz                        ; 329 MHz                          ; 329 MHz         ;
+; altera_reserved_tck                                                                                   ; 71 MHz  ; 71 MHz                       ; 71 MHz                         ; 71 MHz                           ; 71 MHz          ;
++-------------------------------------------------------------------------------------------------------+---------+------------------------------+--------------------------------+----------------------------------+-----------------+
+Fast Forward Compilation enabled: Post-place & route results are analyzed to provide step-by-step recommendations for suggested RTL changes and show the estimated performance improvement from making these changes
+- Fmax/Slack: Estimated performance from retiming existing registers in the design
+- Relationship: Timing relationship between launch and latch clock edge
+- Achieved with Hyper-Retiming: Estimated performance from analyzing optimizations to remove restrictions that prevent registers from retiming
+- Achieved with Hyper-Pipelining: Estimated performance from analyzing optimizations to add new registers to the design to pipeline paths better
+- Achieved with Hyper-Optimization: Estimated performance from analyzing optimizations to further improve the design
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Worst-Case Slack Summary                                                                                                                                                                                                         ;
++-------------------------------------------------------------------------------------------------------+-----------------------------+------------------------------+--------------------------------+----------------------------------+
+; Clock Name                                                                                            ; Slack                       ; Achieved with Hyper-Retiming ; Achieved with Hyper-Pipelining ; Achieved with Hyper-Optimization ;
++-------------------------------------------------------------------------------------------------------+-----------------------------+------------------------------+--------------------------------+----------------------------------+
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_core_usr_clk ; 0.201 (3.333 Relationship)  ; 0.201 (3.333 Relationship)   ; 0.201 (3.333 Relationship)     ; 0.201 (3.333 Relationship)       ;
+; ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_core_usr_clk ; 0.196 (3.333 Relationship)  ; 0.196 (3.333 Relationship)   ; 0.196 (3.333 Relationship)     ; 0.196 (3.333 Relationship)       ;
+; cxl_ip.coreclkout_hip                                                                                 ; 0.200 (2.500 Relationship)  ; 0.200 (2.500 Relationship)   ; 0.200 (2.500 Relationship)     ; 0.200 (2.500 Relationship)       ;
+; sbr_clk                                                                                               ; 2.697 (8.000 Relationship)  ; 2.697 (8.000 Relationship)   ; 2.697 (8.000 Relationship)     ; 2.697 (8.000 Relationship)       ;
+; cam_clk                                                                                               ; 0.746 (6.666 Relationship)  ; 0.746 (6.666 Relationship)   ; 0.746 (6.666 Relationship)     ; 0.746 (6.666 Relationship)       ;
+; cxl_ip.pld_clkout_slow                                                                                ; 0.961 (4.000 Relationship)  ; 0.961 (4.000 Relationship)   ; 0.961 (4.000 Relationship)     ; 0.961 (4.000 Relationship)       ;
+; altera_reserved_tck                                                                                   ; 8.065 (15.151 Relationship) ; 8.065 (15.151 Relationship)  ; 8.065 (15.151 Relationship)    ; 8.065 (15.151 Relationship)      ;
++-------------------------------------------------------------------------------------------------------+-----------------------------+------------------------------+--------------------------------+----------------------------------+
+Fast Forward Compilation enabled: Post-place & route results are analyzed to provide step-by-step recommendations for suggested RTL changes and show the estimated performance improvement from making these changes
+- Fmax/Slack: Estimated performance from retiming existing registers in the design
+- Relationship: Timing relationship between launch and latch clock edge
+- Achieved with Hyper-Retiming: Estimated performance from analyzing optimizations to remove restrictions that prevent registers from retiming
+- Achieved with Hyper-Pipelining: Estimated performance from analyzing optimizations to add new registers to the design to pipeline paths better
+- Achieved with Hyper-Optimization: Estimated performance from analyzing optimizations to further improve the design
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Forward Summary for Clock Domain ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_core_usr_clk ;
++--------------------+-----------------------------------------------------------+----------------+-------+-----------------------------------+
+; Step               ; Fast Forward Optimizations Analyzed                       ; Estimated Fmax ; Slack ; Relationship                      ;
++--------------------+-----------------------------------------------------------+----------------+-------+-----------------------------------+
+; Base Performance   ; None                                                      ; 319 MHz        ; 0.196 ; 3.333                             ;
+; Fast Forward Limit ; Meets timing requirements: No further analysis performed. ; --             ; --    ; --                                ;
++--------------------+-----------------------------------------------------------+----------------+-------+-----------------------------------+
+
+
+Critical Chain for Base Result
+===============================================================================
++--------------------------------------------------------------------+
+; Critical Chain for Base Result                                     ;
++--------------------------------------------------------------------+
+; Critical Chain for Base Result                                     ;
++--------------------------------------------------------------------+
+; See 'Retiming Limit Details' results in Fitter Retime Stage folder ;
++--------------------------------------------------------------------+
+
+
+
+Meets timing requirements: No further analysis performed.
+===============================================================================
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Optimizations Analyzed (Cumulative)                                                                                                                                                                                                                                                                                                                                                ;
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Optimizations Analyzed (Cumulative)                                                                                                                                                                                                                                                                                                                                                ;
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Added up to 1 pipeline stage in 5184 Paths for Clock Domain ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_core_usr_clk                                                                                                                                                                                                                  ;
+;  Added up to 1 pipeline stage in 5184 Paths from Clock Domain 'ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_phy_clk_l_0' to Clock Domain 'ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_core_usr_clk'                                                                                       ;
+;   Added up to 1 pipeline stage in 5184 Paths from Entity altera_emif_arch_fm_io_lane_remap to Entity altera_emif_arch_fm_hmc_amm_data_if                                                                                                                                                                                                                                           ;
+;    Added up to 1 pipeline stage in 576 Paths from Instance ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|io_tiles_wrap_inst|io_tiles_inst|tile_gen[2].lane_gen[2].lane_inst to Instance ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|hmc.amm.amm.data_if_inst ;
+;     Added up to 1 pipeline stage along these paths BEFORE the destinations                                                                                                                                                                                                                                                                                                         ;
+;      from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|io_tiles_wrap_inst|io_tiles_inst|tile_gen[2].lane_gen[2].lane_inst|lane_inst to bus ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|hmc.amm.amm.data_if_inst|amm_readdata_0[575:0]                       ;
+;    Added up to 1 pipeline stage in 576 Paths from Instance ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|io_tiles_wrap_inst|io_tiles_inst|tile_gen[2].lane_gen[1].lane_inst to Instance ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|hmc.amm.amm.data_if_inst ;
+;     Added up to 1 pipeline stage along these paths BEFORE the destinations                                                                                                                                                                                                                                                                                                         ;
+;      from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|io_tiles_wrap_inst|io_tiles_inst|tile_gen[2].lane_gen[1].lane_inst|lane_inst to bus ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|hmc.amm.amm.data_if_inst|amm_readdata_0[575:0]                       ;
+;    Added up to 1 pipeline stage in 576 Paths from Instance ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|io_tiles_wrap_inst|io_tiles_inst|tile_gen[0].lane_gen[0].lane_inst to Instance ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|hmc.amm.amm.data_if_inst ;
+;     Added up to 1 pipeline stage along these paths BEFORE the destinations                                                                                                                                                                                                                                                                                                         ;
+;      from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|io_tiles_wrap_inst|io_tiles_inst|tile_gen[0].lane_gen[0].lane_inst|lane_inst to bus ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|hmc.amm.amm.data_if_inst|amm_readdata_0[575:0]                       ;
+;    Added up to 1 pipeline stage in 576 Paths from Instance ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|io_tiles_wrap_inst|io_tiles_inst|tile_gen[2].lane_gen[3].lane_inst to Instance ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|hmc.amm.amm.data_if_inst ;
+;     Added up to 1 pipeline stage along these paths BEFORE the destinations                                                                                                                                                                                                                                                                                                         ;
+;      from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|io_tiles_wrap_inst|io_tiles_inst|tile_gen[2].lane_gen[3].lane_inst|lane_inst to bus ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|hmc.amm.amm.data_if_inst|amm_readdata_0[575:0]                       ;
+;    Added up to 1 pipeline stage in 576 Paths from Instance ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|io_tiles_wrap_inst|io_tiles_inst|tile_gen[0].lane_gen[3].lane_inst to Instance ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|hmc.amm.amm.data_if_inst ;
+;     Added up to 1 pipeline stage along these paths BEFORE the destinations                                                                                                                                                                                                                                                                                                         ;
+;      from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|io_tiles_wrap_inst|io_tiles_inst|tile_gen[0].lane_gen[3].lane_inst|lane_inst to bus ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|hmc.amm.amm.data_if_inst|amm_readdata_0[575:0]                       ;
+;    Added up to 1 pipeline stage in 576 Paths from Instance ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|io_tiles_wrap_inst|io_tiles_inst|tile_gen[2].lane_gen[0].lane_inst to Instance ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|hmc.amm.amm.data_if_inst ;
+;     Added up to 1 pipeline stage along these paths BEFORE the destinations                                                                                                                                                                                                                                                                                                         ;
+;      from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|io_tiles_wrap_inst|io_tiles_inst|tile_gen[2].lane_gen[0].lane_inst|lane_inst to bus ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|hmc.amm.amm.data_if_inst|amm_readdata_0[575:0]                       ;
+;    Added up to 1 pipeline stage in 576 Paths from Instance ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|io_tiles_wrap_inst|io_tiles_inst|tile_gen[0].lane_gen[1].lane_inst to Instance ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|hmc.amm.amm.data_if_inst ;
+;     Added up to 1 pipeline stage along these paths BEFORE the destinations                                                                                                                                                                                                                                                                                                         ;
+;      from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|io_tiles_wrap_inst|io_tiles_inst|tile_gen[0].lane_gen[1].lane_inst|lane_inst to bus ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|hmc.amm.amm.data_if_inst|amm_readdata_0[575:0]                       ;
+;    Added up to 1 pipeline stage in 576 Paths from Instance ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|io_tiles_wrap_inst|io_tiles_inst|tile_gen[0].lane_gen[2].lane_inst to Instance ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|hmc.amm.amm.data_if_inst ;
+;     Added up to 1 pipeline stage along these paths BEFORE the destinations                                                                                                                                                                                                                                                                                                         ;
+;      from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|io_tiles_wrap_inst|io_tiles_inst|tile_gen[0].lane_gen[2].lane_inst|lane_inst to bus ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|hmc.amm.amm.data_if_inst|amm_readdata_0[575:0]                       ;
+;    Added up to 1 pipeline stage in 576 Paths from Instance ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|io_tiles_wrap_inst|io_tiles_inst|tile_gen[3].lane_gen[0].lane_inst to Instance ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|hmc.amm.amm.data_if_inst ;
+;     Added up to 1 pipeline stage along these paths BEFORE the destinations                                                                                                                                                                                                                                                                                                         ;
+;      from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|io_tiles_wrap_inst|io_tiles_inst|tile_gen[3].lane_gen[0].lane_inst|lane_inst to bus ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif|arch|arch_inst|hmc.amm.amm.data_if_inst|amm_readdata_0[575:0]                       ;
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Fast Forward Summary for Clock Domain cxl_ip.coreclkout_hip                                                            ;
++--------------------+-----------------------------------------------------------+----------------+-------+--------------+
+; Step               ; Fast Forward Optimizations Analyzed                       ; Estimated Fmax ; Slack ; Relationship ;
++--------------------+-----------------------------------------------------------+----------------+-------+--------------+
+; Base Performance   ; None                                                      ; 435 MHz        ; 0.200 ; 2.500        ;
+; Fast Forward Limit ; Meets timing requirements: No further analysis performed. ; --             ; --    ; --           ;
++--------------------+-----------------------------------------------------------+----------------+-------+--------------+
+
+
+Critical Chain for Base Result
+===============================================================================
++--------------------------------------------------------------------+
+; Critical Chain for Base Result                                     ;
++--------------------------------------------------------------------+
+; Critical Chain for Base Result                                     ;
++--------------------------------------------------------------------+
+; See 'Retiming Limit Details' results in Fitter Retime Stage folder ;
++--------------------------------------------------------------------+
+
+
+
+Meets timing requirements: No further analysis performed.
+===============================================================================
++-----------------------------------------------------------+
+; Optimizations Analyzed (Cumulative)                       ;
++-----------------------------------------------------------+
+; Optimizations Analyzed (Cumulative)                       ;
++-----------------------------------------------------------+
+; Meets timing requirements: No further analysis performed. ;
++-----------------------------------------------------------+
+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Forward Summary for Clock Domain ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_core_usr_clk ;
++--------------------+-----------------------------------------------------------+----------------+-------+-----------------------------------+
+; Step               ; Fast Forward Optimizations Analyzed                       ; Estimated Fmax ; Slack ; Relationship                      ;
++--------------------+-----------------------------------------------------------+----------------+-------+-----------------------------------+
+; Base Performance   ; None                                                      ; 319 MHz        ; 0.201 ; 3.333                             ;
+; Fast Forward Limit ; Meets timing requirements: No further analysis performed. ; --             ; --    ; --                                ;
++--------------------+-----------------------------------------------------------+----------------+-------+-----------------------------------+
+
+
+Critical Chain for Base Result
+===============================================================================
++--------------------------------------------------------------------+
+; Critical Chain for Base Result                                     ;
++--------------------------------------------------------------------+
+; Critical Chain for Base Result                                     ;
++--------------------------------------------------------------------+
+; See 'Retiming Limit Details' results in Fitter Retime Stage folder ;
++--------------------------------------------------------------------+
+
+
+
+Meets timing requirements: No further analysis performed.
+===============================================================================
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Optimizations Analyzed (Cumulative)                                                                                                                                                                                                                                                                                                                                                ;
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Optimizations Analyzed (Cumulative)                                                                                                                                                                                                                                                                                                                                                ;
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Added up to 1 pipeline stage in 2880 Paths for Clock Domain ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_core_usr_clk                                                                                                                                                                                                                  ;
+;  Added up to 1 pipeline stage in 2880 Paths from Clock Domain 'ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_phy_clk_l_0' to Clock Domain 'ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_core_usr_clk'                                                                                       ;
+;   Added up to 1 pipeline stage in 2880 Paths from Entity altera_emif_arch_fm_io_lane_remap to Entity altera_emif_arch_fm_hmc_amm_data_if                                                                                                                                                                                                                                           ;
+;    Added up to 1 pipeline stage in 576 Paths from Instance ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif|arch|arch_inst|io_tiles_wrap_inst|io_tiles_inst|tile_gen[2].lane_gen[3].lane_inst to Instance ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif|arch|arch_inst|hmc.amm.amm.data_if_inst ;
+;     Added up to 1 pipeline stage along these paths BEFORE the destinations                                                                                                                                                                                                                                                                                                         ;
+;      from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif|arch|arch_inst|io_tiles_wrap_inst|io_tiles_inst|tile_gen[2].lane_gen[3].lane_inst|lane_inst to bus ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif|arch|arch_inst|hmc.amm.amm.data_if_inst|amm_readdata_0[575:0]                       ;
+;    Added up to 1 pipeline stage in 576 Paths from Instance ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif|arch|arch_inst|io_tiles_wrap_inst|io_tiles_inst|tile_gen[2].lane_gen[2].lane_inst to Instance ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif|arch|arch_inst|hmc.amm.amm.data_if_inst ;
+;     Added up to 1 pipeline stage along these paths BEFORE the destinations                                                                                                                                                                                                                                                                                                         ;
+;      from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif|arch|arch_inst|io_tiles_wrap_inst|io_tiles_inst|tile_gen[2].lane_gen[2].lane_inst|lane_inst to bus ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif|arch|arch_inst|hmc.amm.amm.data_if_inst|amm_readdata_0[575:0]                       ;
+;    Added up to 1 pipeline stage in 576 Paths from Instance ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif|arch|arch_inst|io_tiles_wrap_inst|io_tiles_inst|tile_gen[0].lane_gen[3].lane_inst to Instance ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif|arch|arch_inst|hmc.amm.amm.data_if_inst ;
+;     Added up to 1 pipeline stage along these paths BEFORE the destinations                                                                                                                                                                                                                                                                                                         ;
+;      from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif|arch|arch_inst|io_tiles_wrap_inst|io_tiles_inst|tile_gen[0].lane_gen[3].lane_inst|lane_inst to bus ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif|arch|arch_inst|hmc.amm.amm.data_if_inst|amm_readdata_0[575:0]                       ;
+;    Added up to 1 pipeline stage in 576 Paths from Instance ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif|arch|arch_inst|io_tiles_wrap_inst|io_tiles_inst|tile_gen[0].lane_gen[2].lane_inst to Instance ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif|arch|arch_inst|hmc.amm.amm.data_if_inst ;
+;     Added up to 1 pipeline stage along these paths BEFORE the destinations                                                                                                                                                                                                                                                                                                         ;
+;      from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif|arch|arch_inst|io_tiles_wrap_inst|io_tiles_inst|tile_gen[0].lane_gen[2].lane_inst|lane_inst to bus ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif|arch|arch_inst|hmc.amm.amm.data_if_inst|amm_readdata_0[575:0]                       ;
+;    Added up to 1 pipeline stage in 576 Paths from Instance ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif|arch|arch_inst|io_tiles_wrap_inst|io_tiles_inst|tile_gen[0].lane_gen[0].lane_inst to Instance ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif|arch|arch_inst|hmc.amm.amm.data_if_inst ;
+;     Added up to 1 pipeline stage along these paths BEFORE the destinations                                                                                                                                                                                                                                                                                                         ;
+;      from ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif|arch|arch_inst|io_tiles_wrap_inst|io_tiles_inst|tile_gen[0].lane_gen[0].lane_inst|lane_inst to bus ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif|arch|arch_inst|hmc.amm.amm.data_if_inst|amm_readdata_0[575:0]                       ;
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Fast Forward Summary for Clock Domain cam_clk                                                                          ;
++--------------------+-----------------------------------------------------------+----------------+-------+--------------+
+; Step               ; Fast Forward Optimizations Analyzed                       ; Estimated Fmax ; Slack ; Relationship ;
++--------------------+-----------------------------------------------------------+----------------+-------+--------------+
+; Base Performance   ; None                                                      ; 169 MHz        ; 0.746 ; 6.666        ;
+; Fast Forward Limit ; Meets timing requirements: No further analysis performed. ; --             ; --    ; --           ;
++--------------------+-----------------------------------------------------------+----------------+-------+--------------+
+
+
+Critical Chain for Base Result
+===============================================================================
++--------------------------------------------------------------------+
+; Critical Chain for Base Result                                     ;
++--------------------------------------------------------------------+
+; Critical Chain for Base Result                                     ;
++--------------------------------------------------------------------+
+; See 'Retiming Limit Details' results in Fitter Retime Stage folder ;
++--------------------------------------------------------------------+
+
+
+
+Meets timing requirements: No further analysis performed.
+===============================================================================
++-----------------------------------------------------------+
+; Optimizations Analyzed (Cumulative)                       ;
++-----------------------------------------------------------+
+; Optimizations Analyzed (Cumulative)                       ;
++-----------------------------------------------------------+
+; Meets timing requirements: No further analysis performed. ;
++-----------------------------------------------------------+
+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Fast Forward Summary for Clock Domain cxl_ip.pld_clkout_slow                                                           ;
++--------------------+-----------------------------------------------------------+----------------+-------+--------------+
+; Step               ; Fast Forward Optimizations Analyzed                       ; Estimated Fmax ; Slack ; Relationship ;
++--------------------+-----------------------------------------------------------+----------------+-------+--------------+
+; Base Performance   ; None                                                      ; 329 MHz        ; 0.961 ; 4.000        ;
+; Fast Forward Limit ; Meets timing requirements: No further analysis performed. ; --             ; --    ; --           ;
++--------------------+-----------------------------------------------------------+----------------+-------+--------------+
+
+
+Critical Chain for Base Result
+===============================================================================
++--------------------------------------------------------------------+
+; Critical Chain for Base Result                                     ;
++--------------------------------------------------------------------+
+; Critical Chain for Base Result                                     ;
++--------------------------------------------------------------------+
+; See 'Retiming Limit Details' results in Fitter Retime Stage folder ;
++--------------------------------------------------------------------+
+
+
+
+Meets timing requirements: No further analysis performed.
+===============================================================================
++-----------------------------------------------------------+
+; Optimizations Analyzed (Cumulative)                       ;
++-----------------------------------------------------------+
+; Optimizations Analyzed (Cumulative)                       ;
++-----------------------------------------------------------+
+; Meets timing requirements: No further analysis performed. ;
++-----------------------------------------------------------+
+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Fast Forward Summary for Clock Domain sbr_clk                                                                          ;
++--------------------+-----------------------------------------------------------+----------------+-------+--------------+
+; Step               ; Fast Forward Optimizations Analyzed                       ; Estimated Fmax ; Slack ; Relationship ;
++--------------------+-----------------------------------------------------------+----------------+-------+--------------+
+; Base Performance   ; None                                                      ; 189 MHz        ; 2.697 ; 8.000        ;
+; Fast Forward Limit ; Meets timing requirements: No further analysis performed. ; --             ; --    ; --           ;
++--------------------+-----------------------------------------------------------+----------------+-------+--------------+
+
+
+Critical Chain for Base Result
+===============================================================================
++--------------------------------------------------------------------+
+; Critical Chain for Base Result                                     ;
++--------------------------------------------------------------------+
+; Critical Chain for Base Result                                     ;
++--------------------------------------------------------------------+
+; See 'Retiming Limit Details' results in Fitter Retime Stage folder ;
++--------------------------------------------------------------------+
+
+
+
+Meets timing requirements: No further analysis performed.
+===============================================================================
++-----------------------------------------------------------+
+; Optimizations Analyzed (Cumulative)                       ;
++-----------------------------------------------------------+
+; Optimizations Analyzed (Cumulative)                       ;
++-----------------------------------------------------------+
+; Meets timing requirements: No further analysis performed. ;
++-----------------------------------------------------------+
+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Fast Forward Summary for Clock Domain altera_reserved_tck                                                              ;
++--------------------+-----------------------------------------------------------+----------------+-------+--------------+
+; Step               ; Fast Forward Optimizations Analyzed                       ; Estimated Fmax ; Slack ; Relationship ;
++--------------------+-----------------------------------------------------------+----------------+-------+--------------+
+; Base Performance   ; None                                                      ; 71 MHz         ; 8.065 ; 15.151       ;
+; Fast Forward Limit ; Meets timing requirements: No further analysis performed. ; --             ; --    ; --           ;
++--------------------+-----------------------------------------------------------+----------------+-------+--------------+
+
+
+Critical Chain for Base Result
+===============================================================================
++--------------------------------------------------------------------+
+; Critical Chain for Base Result                                     ;
++--------------------------------------------------------------------+
+; Critical Chain for Base Result                                     ;
++--------------------------------------------------------------------+
+; See 'Retiming Limit Details' results in Fitter Retime Stage folder ;
++--------------------------------------------------------------------+
+
+
+
+Meets timing requirements: No further analysis performed.
+===============================================================================
++-----------------------------------------------------------+
+; Optimizations Analyzed (Cumulative)                       ;
++-----------------------------------------------------------+
+; Optimizations Analyzed (Cumulative)                       ;
++-----------------------------------------------------------+
+; Meets timing requirements: No further analysis performed. ;
++-----------------------------------------------------------+
+
+
+
++----------------------+
+; Fastforward Messages ;
++----------------------+
+Can't read Quartus Prime message file /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/hardware_test_design_20230828_v01/qdb/_compiler/cxltyp3_memexp_ddr4_top/_flat/22.4.0/legacy/1/cxltyp3_memexp_ddr4_top.fit.fastforward.header.qmsgdb.
+Make sure the file exists and is up to date, and you have permission to read and write the file.
+Info (16677): Loading routed database.
+Info (16734): Loading "routed" snapshot for partition "root_partition".
+Info (16734): Loading "routed" snapshot for partition "auto_fab_0".
+Info (16678): Successfully loaded routed database: elapsed time is 00:00:33.
+Info (16303): Superior Performance with Maximum Placement Effort optimization mode selected -- timing performance will be prioritized at the potential cost of increased logic area and compilation time
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 100 degrees C
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 100 degrees C
+Info (176045): Design uses memory blocks. Violating setup or hold times of memory block address registers for either read or write operations could cause memory contents to be corrupted. Make sure that all memory block address registers meet the setup and hold time requirements.
+Warning (18291): Timing characteristics of device AGIB027R29A1E2VR3 are preliminary
+Info (332164): Evaluating HDL-embedded SDC commands
+    Info (332165): Entity dcfifo_14s1
+        Info (332166): set_false_path -from *rdptr_g* -to *ws_dgrp|dffpipe_u5c:dffpipe13|dffe14a* 
+        Info (332166): set_false_path -from *delayed_wrptr_g* -to *rs_dgwp|dffpipe_t5c:dffpipe10|dffe11a* 
+    Info (332165): Entity dcfifo_24s1
+        Info (332166): set_false_path -from *rdptr_g* -to *ws_dgrp|dffpipe_06c:dffpipe10|dffe11a* 
+        Info (332166): set_false_path -from *delayed_wrptr_g* -to *rs_dgwp|dffpipe_v5c:dffpipe7|dffe8a* 
+    Info (332165): Entity dcfifo_p3s1
+        Info (332166): set_false_path -from *rdptr_g* -to *ws_dgrp|dffpipe_26c:dffpipe10|dffe11a* 
+        Info (332166): set_false_path -from *delayed_wrptr_g* -to *rs_dgwp|dffpipe_16c:dffpipe7|dffe8a* 
+    Info (332165): Entity altera_std_synchronizer
+        Info (332166): set_false_path -to [get_keepers {*altera_std_synchronizer:*|din_s1}]
+Info (19539): Reading the HDL-embedded SDC files elapsed 00:00:05.
+Info (332104): Reading SDC File: 'common/mc_top/emif_ip/emif/altera_emif_arch_fm_191/synth/emif_altera_emif_arch_fm_191_upxq4vy.sdc'
+Info (332151): Clock uncertainty is not calculated until you update the timing netlist.
+Info (332104): Reading SDC File: 'common/mc_top/sip_quartus_ips/rspfifo_IP/rspfifo/fifo_1920/synth/rspfifo_fifo_1920_vhzfndq.sdc'
+Warning (332174): Ignored filter at rspfifo_fifo_1920_vhzfndq.sdc(54): ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_REG_RSP_FIFO[0].rspfifo_inst|fifo_0|dcfifo_component|auto_generated|ws_dgrp|dffpipe*|dffe* could not be matched with a keeper File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/hardware_test_design_20230828_v01/common/mc_top/sip_quartus_ips/rspfifo_IP/rspfifo/fifo_1920/synth/rspfifo_fifo_1920_vhzfndq.sdc Line: 54
+Warning (332049): Ignored set_max_skew at rspfifo_fifo_1920_vhzfndq.sdc(30): Argument -to with value [get_keepers {ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_REG_RSP_FIFO[0].rspfifo_inst|fifo_0|dcfifo_component|auto_generated|ws_dgrp|dffpipe*|dffe*}] contains zero elements File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/hardware_test_design_20230828_v01/common/mc_top/sip_quartus_ips/rspfifo_IP/rspfifo/fifo_1920/synth/rspfifo_fifo_1920_vhzfndq.sdc Line: 30
+    Info (332050): set_max_skew -from $from_node_list -to $to_node_list -get_skew_value_from_clock_period src_clock_period -skew_value_multiplier 0.8 File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/hardware_test_design_20230828_v01/common/mc_top/sip_quartus_ips/rspfifo_IP/rspfifo/fifo_1920/synth/rspfifo_fifo_1920_vhzfndq.sdc Line: 30
+Warning (332049): Ignored set_net_delay at rspfifo_fifo_1920_vhzfndq.sdc(33): Argument <to> is an empty collection File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/hardware_test_design_20230828_v01/common/mc_top/sip_quartus_ips/rspfifo_IP/rspfifo/fifo_1920/synth/rspfifo_fifo_1920_vhzfndq.sdc Line: 33
+    Info (332050): set_net_delay -from $from_node_list -to $to_node_list -max -get_value_from_clock_period dst_clock_period -value_multiplier 0.8 File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/hardware_test_design_20230828_v01/common/mc_top/sip_quartus_ips/rspfifo_IP/rspfifo/fifo_1920/synth/rspfifo_fifo_1920_vhzfndq.sdc Line: 33
+Warning (332049): Ignored set_max_delay at rspfifo_fifo_1920_vhzfndq.sdc(36): Argument <to> is an empty collection File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/hardware_test_design_20230828_v01/common/mc_top/sip_quartus_ips/rspfifo_IP/rspfifo/fifo_1920/synth/rspfifo_fifo_1920_vhzfndq.sdc Line: 36
+    Info (332050): set_max_delay -from $from_node_list -to $to_node_list 100 File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/hardware_test_design_20230828_v01/common/mc_top/sip_quartus_ips/rspfifo_IP/rspfifo/fifo_1920/synth/rspfifo_fifo_1920_vhzfndq.sdc Line: 36
+Warning (332049): Ignored set_min_delay at rspfifo_fifo_1920_vhzfndq.sdc(37): Argument <to> is an empty collection File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/hardware_test_design_20230828_v01/common/mc_top/sip_quartus_ips/rspfifo_IP/rspfifo/fifo_1920/synth/rspfifo_fifo_1920_vhzfndq.sdc Line: 37
+    Info (332050): set_min_delay -from $from_node_list -to $to_node_list -100 File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/hardware_test_design_20230828_v01/common/mc_top/sip_quartus_ips/rspfifo_IP/rspfifo/fifo_1920/synth/rspfifo_fifo_1920_vhzfndq.sdc Line: 37
+Warning (332049): Ignored set_net_delay at rspfifo_fifo_1920_vhzfndq.sdc(45): Argument <from> is an empty collection File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/hardware_test_design_20230828_v01/common/mc_top/sip_quartus_ips/rspfifo_IP/rspfifo/fifo_1920/synth/rspfifo_fifo_1920_vhzfndq.sdc Line: 45
+    Info (332050): set_net_delay -from $from_node_list -to $to_node_list -max -get_value_from_clock_period dst_clock_period -value_multiplier 0.8 File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/hardware_test_design_20230828_v01/common/mc_top/sip_quartus_ips/rspfifo_IP/rspfifo/fifo_1920/synth/rspfifo_fifo_1920_vhzfndq.sdc Line: 45
+Warning (332174): Ignored filter at rspfifo_fifo_1920_vhzfndq.sdc(54): ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_REG_RSP_FIFO[1].rspfifo_inst|fifo_0|dcfifo_component|auto_generated|ws_dgrp|dffpipe*|dffe* could not be matched with a keeper File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/hardware_test_design_20230828_v01/common/mc_top/sip_quartus_ips/rspfifo_IP/rspfifo/fifo_1920/synth/rspfifo_fifo_1920_vhzfndq.sdc Line: 54
+Warning (332049): Ignored set_max_skew at rspfifo_fifo_1920_vhzfndq.sdc(30): Argument -to with value [get_keepers {ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_REG_RSP_FIFO[1].rspfifo_inst|fifo_0|dcfifo_component|auto_generated|ws_dgrp|dffpipe*|dffe*}] contains zero elements File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/hardware_test_design_20230828_v01/common/mc_top/sip_quartus_ips/rspfifo_IP/rspfifo/fifo_1920/synth/rspfifo_fifo_1920_vhzfndq.sdc Line: 30
+    Info (332050): set_max_skew -from $from_node_list -to $to_node_list -get_skew_value_from_clock_period src_clock_period -skew_value_multiplier 0.8 File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/hardware_test_design_20230828_v01/common/mc_top/sip_quartus_ips/rspfifo_IP/rspfifo/fifo_1920/synth/rspfifo_fifo_1920_vhzfndq.sdc Line: 30
+Warning (332049): Ignored set_net_delay at rspfifo_fifo_1920_vhzfndq.sdc(33): Argument <to> is an empty collection File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/hardware_test_design_20230828_v01/common/mc_top/sip_quartus_ips/rspfifo_IP/rspfifo/fifo_1920/synth/rspfifo_fifo_1920_vhzfndq.sdc Line: 33
+    Info (332050): set_net_delay -from $from_node_list -to $to_node_list -max -get_value_from_clock_period dst_clock_period -value_multiplier 0.8 File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/hardware_test_design_20230828_v01/common/mc_top/sip_quartus_ips/rspfifo_IP/rspfifo/fifo_1920/synth/rspfifo_fifo_1920_vhzfndq.sdc Line: 33
+Warning (332049): Ignored set_max_delay at rspfifo_fifo_1920_vhzfndq.sdc(36): Argument <to> is an empty collection File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/hardware_test_design_20230828_v01/common/mc_top/sip_quartus_ips/rspfifo_IP/rspfifo/fifo_1920/synth/rspfifo_fifo_1920_vhzfndq.sdc Line: 36
+    Info (332050): set_max_delay -from $from_node_list -to $to_node_list 100 File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/hardware_test_design_20230828_v01/common/mc_top/sip_quartus_ips/rspfifo_IP/rspfifo/fifo_1920/synth/rspfifo_fifo_1920_vhzfndq.sdc Line: 36
+Warning (332049): Ignored set_min_delay at rspfifo_fifo_1920_vhzfndq.sdc(37): Argument <to> is an empty collection File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/hardware_test_design_20230828_v01/common/mc_top/sip_quartus_ips/rspfifo_IP/rspfifo/fifo_1920/synth/rspfifo_fifo_1920_vhzfndq.sdc Line: 37
+    Info (332050): set_min_delay -from $from_node_list -to $to_node_list -100 File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/hardware_test_design_20230828_v01/common/mc_top/sip_quartus_ips/rspfifo_IP/rspfifo/fifo_1920/synth/rspfifo_fifo_1920_vhzfndq.sdc Line: 37
+Warning (332049): Ignored set_net_delay at rspfifo_fifo_1920_vhzfndq.sdc(45): Argument <from> is an empty collection File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/hardware_test_design_20230828_v01/common/mc_top/sip_quartus_ips/rspfifo_IP/rspfifo/fifo_1920/synth/rspfifo_fifo_1920_vhzfndq.sdc Line: 45
+    Info (332050): set_net_delay -from $from_node_list -to $to_node_list -max -get_value_from_clock_period dst_clock_period -value_multiplier 0.8 File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/hardware_test_design_20230828_v01/common/mc_top/sip_quartus_ips/rspfifo_IP/rspfifo/fifo_1920/synth/rspfifo_fifo_1920_vhzfndq.sdc Line: 45
+Info (332104): Reading SDC File: 'common/mc_top/sip_quartus_ips/reqfifo_IP/reqfifo/fifo_1920/synth/reqfifo_fifo_1920_tthg67i.sdc'
+Info (18794): Reading SDC File: '../intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_ast_101/synth/intel_rtile_cxl.sdc' for instance: 'intel_rtile_cxl_top_inst|intel_rtile_cxl_top_0|cxl_ip|rtile_cxl_ip'
+Info (332104): Reading SDC File: '../intel_rtile_cxl_top_cxltyp3_ed/altera_iopll_1931/synth/intel_rtile_cxl_top_cxltyp3_ed_altera_iopll_1931_lsetw4a.sdc'
+Info (332151): Clock uncertainty is not calculated until you update the timing netlist.
+Info (18794): Reading SDC File: '../intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/cxl_io_slave/st_dc_fifo_1941/synth/cxl_io_slave_st_dc_fifo_1941_t2zlahy.sdc' for instance: 'intel_rtile_cxl_top_inst|intel_rtile_cxl_top_0'
+Warning (332174): Ignored filter at cxl_io_slave_st_dc_fifo_1941_t2zlahy.sdc(28): intel_rtile_cxl_top_inst|intel_rtile_cxl_top_0|*|altera_dcfifo_synchronizer_bundle:write_crosser|altera_std_synchronizer_nocut:sync[*].u|din_s1 could not be matched with a register File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/cxl_io_slave/st_dc_fifo_1941/synth/cxl_io_slave_st_dc_fifo_1941_t2zlahy.sdc Line: 28
+Warning (332049): Ignored set_max_delay at cxl_io_slave_st_dc_fifo_1941_t2zlahy.sdc(28): Argument <to> is an empty collection File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/cxl_io_slave/st_dc_fifo_1941/synth/cxl_io_slave_st_dc_fifo_1941_t2zlahy.sdc Line: 28
+    Info (332050): set_max_delay -from [get_registers {*|in_wr_ptr_gray[*]}] -to [get_registers {*|altera_dcfifo_synchronizer_bundle:write_crosser|altera_std_synchronizer_nocut:sync[*].u|din_s1}] 200 File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/cxl_io_slave/st_dc_fifo_1941/synth/cxl_io_slave_st_dc_fifo_1941_t2zlahy.sdc Line: 28
+Warning (332049): Ignored set_min_delay at cxl_io_slave_st_dc_fifo_1941_t2zlahy.sdc(29): Argument <to> is an empty collection File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/cxl_io_slave/st_dc_fifo_1941/synth/cxl_io_slave_st_dc_fifo_1941_t2zlahy.sdc Line: 29
+    Info (332050): set_min_delay -from [get_registers {*|in_wr_ptr_gray[*]}] -to [get_registers {*|altera_dcfifo_synchronizer_bundle:write_crosser|altera_std_synchronizer_nocut:sync[*].u|din_s1}] -200 File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/cxl_io_slave/st_dc_fifo_1941/synth/cxl_io_slave_st_dc_fifo_1941_t2zlahy.sdc Line: 29
+Warning (332174): Ignored filter at cxl_io_slave_st_dc_fifo_1941_t2zlahy.sdc(31): intel_rtile_cxl_top_inst|intel_rtile_cxl_top_0|*|altera_dcfifo_synchronizer_bundle:read_crosser|altera_std_synchronizer_nocut:sync[*].u|din_s1 could not be matched with a register File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/cxl_io_slave/st_dc_fifo_1941/synth/cxl_io_slave_st_dc_fifo_1941_t2zlahy.sdc Line: 31
+Warning (332049): Ignored set_max_delay at cxl_io_slave_st_dc_fifo_1941_t2zlahy.sdc(31): Argument <to> is an empty collection File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/cxl_io_slave/st_dc_fifo_1941/synth/cxl_io_slave_st_dc_fifo_1941_t2zlahy.sdc Line: 31
+    Info (332050): set_max_delay -from [get_registers {*|out_rd_ptr_gray[*]}] -to [get_registers {*|altera_dcfifo_synchronizer_bundle:read_crosser|altera_std_synchronizer_nocut:sync[*].u|din_s1}] 200 File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/cxl_io_slave/st_dc_fifo_1941/synth/cxl_io_slave_st_dc_fifo_1941_t2zlahy.sdc Line: 31
+Warning (332049): Ignored set_min_delay at cxl_io_slave_st_dc_fifo_1941_t2zlahy.sdc(32): Argument <to> is an empty collection File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/cxl_io_slave/st_dc_fifo_1941/synth/cxl_io_slave_st_dc_fifo_1941_t2zlahy.sdc Line: 32
+    Info (332050): set_min_delay -from [get_registers {*|out_rd_ptr_gray[*]}] -to [get_registers {*|altera_dcfifo_synchronizer_bundle:read_crosser|altera_std_synchronizer_nocut:sync[*].u|din_s1}] -200 File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/cxl_io_slave/st_dc_fifo_1941/synth/cxl_io_slave_st_dc_fifo_1941_t2zlahy.sdc Line: 32
+Warning (332049): Ignored set_net_delay at cxl_io_slave_st_dc_fifo_1941_t2zlahy.sdc(34): Argument <to> is an empty collection File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/cxl_io_slave/st_dc_fifo_1941/synth/cxl_io_slave_st_dc_fifo_1941_t2zlahy.sdc Line: 34
+    Info (332050): set_net_delay -max -get_value_from_clock_period dst_clock_period -value_multiplier 0.8 -from [get_pins -compatibility_mode {*|in_wr_ptr_gray[*]*}] -to [get_registers {*|altera_dcfifo_synchronizer_bundle:write_crosser|altera_std_synchronizer_nocut:sync[*].u|din_s1}]  File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/cxl_io_slave/st_dc_fifo_1941/synth/cxl_io_slave_st_dc_fifo_1941_t2zlahy.sdc Line: 34
+Warning (332049): Ignored set_net_delay at cxl_io_slave_st_dc_fifo_1941_t2zlahy.sdc(35): Argument <to> is an empty collection File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/cxl_io_slave/st_dc_fifo_1941/synth/cxl_io_slave_st_dc_fifo_1941_t2zlahy.sdc Line: 35
+    Info (332050): set_net_delay -max -get_value_from_clock_period dst_clock_period -value_multiplier 0.8 -from [get_pins -compatibility_mode {*|out_rd_ptr_gray[*]*}] -to [get_registers {*|altera_dcfifo_synchronizer_bundle:read_crosser|altera_std_synchronizer_nocut:sync[*].u|din_s1}] File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/cxl_io_slave/st_dc_fifo_1941/synth/cxl_io_slave_st_dc_fifo_1941_t2zlahy.sdc Line: 35
+Info (18794): Reading SDC File: '../intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/cxl_io_master/st_dc_fifo_1941/synth/cxl_io_master_st_dc_fifo_1941_t2zlahy.sdc' for instance: 'intel_rtile_cxl_top_inst|intel_rtile_cxl_top_0'
+Warning (332049): Ignored set_max_delay at cxl_io_master_st_dc_fifo_1941_t2zlahy.sdc(28): Argument <to> is an empty collection File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/cxl_io_master/st_dc_fifo_1941/synth/cxl_io_master_st_dc_fifo_1941_t2zlahy.sdc Line: 28
+    Info (332050): set_max_delay -from [get_registers {*|in_wr_ptr_gray[*]}] -to [get_registers {*|altera_dcfifo_synchronizer_bundle:write_crosser|altera_std_synchronizer_nocut:sync[*].u|din_s1}] 200 File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/cxl_io_master/st_dc_fifo_1941/synth/cxl_io_master_st_dc_fifo_1941_t2zlahy.sdc Line: 28
+Warning (332049): Ignored set_min_delay at cxl_io_master_st_dc_fifo_1941_t2zlahy.sdc(29): Argument <to> is an empty collection File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/cxl_io_master/st_dc_fifo_1941/synth/cxl_io_master_st_dc_fifo_1941_t2zlahy.sdc Line: 29
+    Info (332050): set_min_delay -from [get_registers {*|in_wr_ptr_gray[*]}] -to [get_registers {*|altera_dcfifo_synchronizer_bundle:write_crosser|altera_std_synchronizer_nocut:sync[*].u|din_s1}] -200 File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/cxl_io_master/st_dc_fifo_1941/synth/cxl_io_master_st_dc_fifo_1941_t2zlahy.sdc Line: 29
+Warning (332049): Ignored set_max_delay at cxl_io_master_st_dc_fifo_1941_t2zlahy.sdc(31): Argument <to> is an empty collection File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/cxl_io_master/st_dc_fifo_1941/synth/cxl_io_master_st_dc_fifo_1941_t2zlahy.sdc Line: 31
+    Info (332050): set_max_delay -from [get_registers {*|out_rd_ptr_gray[*]}] -to [get_registers {*|altera_dcfifo_synchronizer_bundle:read_crosser|altera_std_synchronizer_nocut:sync[*].u|din_s1}] 200 File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/cxl_io_master/st_dc_fifo_1941/synth/cxl_io_master_st_dc_fifo_1941_t2zlahy.sdc Line: 31
+Warning (332049): Ignored set_min_delay at cxl_io_master_st_dc_fifo_1941_t2zlahy.sdc(32): Argument <to> is an empty collection File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/cxl_io_master/st_dc_fifo_1941/synth/cxl_io_master_st_dc_fifo_1941_t2zlahy.sdc Line: 32
+    Info (332050): set_min_delay -from [get_registers {*|out_rd_ptr_gray[*]}] -to [get_registers {*|altera_dcfifo_synchronizer_bundle:read_crosser|altera_std_synchronizer_nocut:sync[*].u|din_s1}] -200 File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/cxl_io_master/st_dc_fifo_1941/synth/cxl_io_master_st_dc_fifo_1941_t2zlahy.sdc Line: 32
+Warning (332049): Ignored set_net_delay at cxl_io_master_st_dc_fifo_1941_t2zlahy.sdc(34): Argument <to> is an empty collection File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/cxl_io_master/st_dc_fifo_1941/synth/cxl_io_master_st_dc_fifo_1941_t2zlahy.sdc Line: 34
+    Info (332050): set_net_delay -max -get_value_from_clock_period dst_clock_period -value_multiplier 0.8 -from [get_pins -compatibility_mode {*|in_wr_ptr_gray[*]*}] -to [get_registers {*|altera_dcfifo_synchronizer_bundle:write_crosser|altera_std_synchronizer_nocut:sync[*].u|din_s1}]  File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/cxl_io_master/st_dc_fifo_1941/synth/cxl_io_master_st_dc_fifo_1941_t2zlahy.sdc Line: 34
+Warning (332049): Ignored set_net_delay at cxl_io_master_st_dc_fifo_1941_t2zlahy.sdc(35): Argument <to> is an empty collection File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/cxl_io_master/st_dc_fifo_1941/synth/cxl_io_master_st_dc_fifo_1941_t2zlahy.sdc Line: 35
+    Info (332050): set_net_delay -max -get_value_from_clock_period dst_clock_period -value_multiplier 0.8 -from [get_pins -compatibility_mode {*|out_rd_ptr_gray[*]*}] -to [get_registers {*|altera_dcfifo_synchronizer_bundle:read_crosser|altera_std_synchronizer_nocut:sync[*].u|din_s1}] File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/cxl_io_master/st_dc_fifo_1941/synth/cxl_io_master_st_dc_fifo_1941_t2zlahy.sdc Line: 35
+Info (18794): Reading SDC File: '../intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/hip_reconfig_slave/st_dc_fifo_1941/synth/hip_reconfig_slave_st_dc_fifo_1941_t2zlahy.sdc' for instance: 'intel_rtile_cxl_top_inst|intel_rtile_cxl_top_0'
+Warning (332049): Ignored set_max_delay at hip_reconfig_slave_st_dc_fifo_1941_t2zlahy.sdc(28): Argument <to> is an empty collection File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/hip_reconfig_slave/st_dc_fifo_1941/synth/hip_reconfig_slave_st_dc_fifo_1941_t2zlahy.sdc Line: 28
+    Info (332050): set_max_delay -from [get_registers {*|in_wr_ptr_gray[*]}] -to [get_registers {*|altera_dcfifo_synchronizer_bundle:write_crosser|altera_std_synchronizer_nocut:sync[*].u|din_s1}] 200 File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/hip_reconfig_slave/st_dc_fifo_1941/synth/hip_reconfig_slave_st_dc_fifo_1941_t2zlahy.sdc Line: 28
+Warning (332049): Ignored set_min_delay at hip_reconfig_slave_st_dc_fifo_1941_t2zlahy.sdc(29): Argument <to> is an empty collection File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/hip_reconfig_slave/st_dc_fifo_1941/synth/hip_reconfig_slave_st_dc_fifo_1941_t2zlahy.sdc Line: 29
+    Info (332050): set_min_delay -from [get_registers {*|in_wr_ptr_gray[*]}] -to [get_registers {*|altera_dcfifo_synchronizer_bundle:write_crosser|altera_std_synchronizer_nocut:sync[*].u|din_s1}] -200 File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/hip_reconfig_slave/st_dc_fifo_1941/synth/hip_reconfig_slave_st_dc_fifo_1941_t2zlahy.sdc Line: 29
+Warning (332049): Ignored set_max_delay at hip_reconfig_slave_st_dc_fifo_1941_t2zlahy.sdc(31): Argument <to> is an empty collection File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/hip_reconfig_slave/st_dc_fifo_1941/synth/hip_reconfig_slave_st_dc_fifo_1941_t2zlahy.sdc Line: 31
+    Info (332050): set_max_delay -from [get_registers {*|out_rd_ptr_gray[*]}] -to [get_registers {*|altera_dcfifo_synchronizer_bundle:read_crosser|altera_std_synchronizer_nocut:sync[*].u|din_s1}] 200 File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/hip_reconfig_slave/st_dc_fifo_1941/synth/hip_reconfig_slave_st_dc_fifo_1941_t2zlahy.sdc Line: 31
+Warning (332049): Ignored set_min_delay at hip_reconfig_slave_st_dc_fifo_1941_t2zlahy.sdc(32): Argument <to> is an empty collection File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/hip_reconfig_slave/st_dc_fifo_1941/synth/hip_reconfig_slave_st_dc_fifo_1941_t2zlahy.sdc Line: 32
+    Info (332050): set_min_delay -from [get_registers {*|out_rd_ptr_gray[*]}] -to [get_registers {*|altera_dcfifo_synchronizer_bundle:read_crosser|altera_std_synchronizer_nocut:sync[*].u|din_s1}] -200 File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/hip_reconfig_slave/st_dc_fifo_1941/synth/hip_reconfig_slave_st_dc_fifo_1941_t2zlahy.sdc Line: 32
+Warning (332049): Ignored set_net_delay at hip_reconfig_slave_st_dc_fifo_1941_t2zlahy.sdc(34): Argument <to> is an empty collection File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/hip_reconfig_slave/st_dc_fifo_1941/synth/hip_reconfig_slave_st_dc_fifo_1941_t2zlahy.sdc Line: 34
+    Info (332050): set_net_delay -max -get_value_from_clock_period dst_clock_period -value_multiplier 0.8 -from [get_pins -compatibility_mode {*|in_wr_ptr_gray[*]*}] -to [get_registers {*|altera_dcfifo_synchronizer_bundle:write_crosser|altera_std_synchronizer_nocut:sync[*].u|din_s1}]  File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/hip_reconfig_slave/st_dc_fifo_1941/synth/hip_reconfig_slave_st_dc_fifo_1941_t2zlahy.sdc Line: 34
+Warning (332049): Ignored set_net_delay at hip_reconfig_slave_st_dc_fifo_1941_t2zlahy.sdc(35): Argument <to> is an empty collection File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/hip_reconfig_slave/st_dc_fifo_1941/synth/hip_reconfig_slave_st_dc_fifo_1941_t2zlahy.sdc Line: 35
+    Info (332050): set_net_delay -max -get_value_from_clock_period dst_clock_period -value_multiplier 0.8 -from [get_pins -compatibility_mode {*|out_rd_ptr_gray[*]*}] -to [get_registers {*|altera_dcfifo_synchronizer_bundle:read_crosser|altera_std_synchronizer_nocut:sync[*].u|din_s1}] File: /home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/avmm_interconnect_network/ip/avmm_interconnect/hip_reconfig_slave/st_dc_fifo_1941/synth/hip_reconfig_slave_st_dc_fifo_1941_t2zlahy.sdc Line: 35
+Info (18794): Reading SDC File: '../intel_rtile_cxl_top_cxltyp3_ed/intel_rtile_cxl_top_170/synth/cxl_ip_top.sdc' for instance: 'intel_rtile_cxl_top_inst|intel_rtile_cxl_top_0'
+Info (332151): Clock uncertainty is not calculated until you update the timing netlist.
+Info (332104): Reading SDC File: 'common/intel_reset_release/intel_reset_release/altera_s10_user_rst_clkgate_1941/synth/altera_s10_user_rst_clkgate_fm.sdc'
+Info (332104): Reading SDC File: 'constraints/cxl_memexp_top.sdc'
+Info (332151): Clock uncertainty is not calculated until you update the timing netlist.
+Info (332104): Reading SDC File: '/home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/hardware_test_design_20230828_v01/qdb/_compiler/cxltyp3_memexp_ddr4_top/_flat/22.4.0/partitioned/1/.temp/sld_fabrics/ipgen/alt_sld_fab_0/alt_sld_fab_0/altera_jtag_dc_streaming_191/synth/altera_avalon_st_jtag_interface.sdc'
+Info (332104): Reading SDC File: '/home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/hardware_test_design_20230828_v01/qdb/_compiler/cxltyp3_memexp_ddr4_top/_flat/22.4.0/partitioned/1/.temp/sld_fabrics/ipgen/alt_sld_fab_0/alt_sld_fab_0/altera_reset_controller_1921/synth/altera_reset_controller.sdc'
+Info (332104): Reading SDC File: '/home/yue/work/f26a/cxltyp3_memexp_ddr4_top_22_4_0_94/hardware_test_design_20230828_v01/qdb/_compiler/cxltyp3_memexp_ddr4_top/_flat/22.4.0/partitioned/1/.temp/sld_fabrics/ipgen/alt_sld_fab_0/alt_sld_fab_0/st_dc_fifo_1941/synth/alt_sld_fab_0_st_dc_fifo_1941_o3yoo7y.sdc'
+Info (332104): Reading SDC File: '/home/yue/tools/ip/altera/sld/jtag/altera_jtag_wys_atom/default_jtag.sdc'
+Info (19449): Reading SDC files elapsed 00:00:17.
+Warning (332158): Clock uncertainty characteristics of the Agilex device family are preliminary
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info (332129): Detected timing requirements -- optimizing circuit to achieve only the specified requirements
+Info (332111): Found 85 clocks
+    Info (332111):   Period   Clock Name
+    Info (332111): ======== ============
+    Info (332111):   30.303 altera_reserved_tck
+    Info (332111):    6.666      cam_clk
+    Info (332111):    2.500 cxl_ip.coreclkout_hip
+    Info (332111):    4.000 cxl_ip.pld_clkout_slow
+    Info (332111):    4.000 cxl_ip.ref_clock_ch12
+    Info (332111):    1.250 cxl_ip.ref_clock_ch15
+    Info (332111):    3.333 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_core_usr_clk
+    Info (332111):    1.666 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_phy_clk_0
+    Info (332111):    1.666 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_phy_clk_1
+    Info (332111):    1.666 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_phy_clk_2
+    Info (332111):    1.666 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_phy_clk_3
+    Info (332111):    3.333 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_phy_clk_l_0
+    Info (332111):    3.333 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_phy_clk_l_1
+    Info (332111):    3.333 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_phy_clk_l_2
+    Info (332111):    3.333 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_phy_clk_l_3
+    Info (332111):   10.000 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_ref_clock
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_vco_clk
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_vco_clk_1
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_vco_clk_2
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_vco_clk_3
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_wf_clk_0
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_wf_clk_1
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_wf_clk_2
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_wf_clk_3
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_wf_clk_4
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_wf_clk_5
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_wf_clk_6
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_wf_clk_7
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_wf_clk_8
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_wf_clk_9
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_wf_clk_10
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_wf_clk_11
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[0].emif_inst|emif_wf_clk_12
+    Info (332111):    3.333 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_core_usr_clk
+    Info (332111):    1.666 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_phy_clk_0
+    Info (332111):    1.666 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_phy_clk_1
+    Info (332111):    1.666 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_phy_clk_2
+    Info (332111):    1.666 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_phy_clk_3
+    Info (332111):    3.333 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_phy_clk_l_0
+    Info (332111):    3.333 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_phy_clk_l_1
+    Info (332111):    3.333 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_phy_clk_l_2
+    Info (332111):    3.333 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_phy_clk_l_3
+    Info (332111):   10.000 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_ref_clock
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_vco_clk
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_vco_clk_1
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_vco_clk_2
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_vco_clk_3
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_wf_clk_0
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_wf_clk_1
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_wf_clk_2
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_wf_clk_3
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_wf_clk_4
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_wf_clk_5
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_wf_clk_6
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_wf_clk_7
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_wf_clk_8
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_wf_clk_9
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_wf_clk_10
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_wf_clk_11
+    Info (332111):    0.833 ed_top_wrapper_typ3_inst|MC_CHANNEL_INST[0].mc_top|GEN_CHAN_COUNT_EMIF[1].emif_inst|emif_wf_clk_12
+    Info (332111):  150.000 intel_rtile_cxl_top_inst|intel_rtile_cxl_top_0|cxl_memexp_sip_top|gen_clkrst|cxl_memexp_sip_clkgen|rnr_ial_sip_clkgen_pll_m_cnt_clk
+    Info (332111):   10.000 intel_rtile_cxl_top_inst|intel_rtile_cxl_top_0|cxl_memexp_sip_top|gen_clkrst|cxl_memexp_sip_clkgen|rnr_ial_sip_clkgen_pll_n_cnt_clk
+    Info (332111):   10.000 intel_rtile_cxl_top_inst|intel_rtile_cxl_top_0|cxl_memexp_sip_top|gen_clkrst|cxl_memexp_sip_clkgen|rnr_ial_sip_clkgen_pll_refclk
+    Info (332111):   10.000 internal_clk
+    Info (332111):    0.833 mem_dqs[0][0]_IN
+    Info (332111):    0.833 mem_dqs[0][1]_IN
+    Info (332111):    0.833 mem_dqs[0][2]_IN
+    Info (332111):    0.833 mem_dqs[0][3]_IN
+    Info (332111):    0.833 mem_dqs[0][4]_IN
+    Info (332111):    0.833 mem_dqs[0][5]_IN
+    Info (332111):    0.833 mem_dqs[0][6]_IN
+    Info (332111):    0.833 mem_dqs[0][7]_IN
+    Info (332111):    0.833 mem_dqs[0][8]_IN
+    Info (332111):    0.833 mem_dqs[1][0]_IN
+    Info (332111):    0.833 mem_dqs[1][1]_IN
+    Info (332111):    0.833 mem_dqs[1][2]_IN
+    Info (332111):    0.833 mem_dqs[1][3]_IN
+    Info (332111):    0.833 mem_dqs[1][4]_IN
+    Info (332111):    0.833 mem_dqs[1][5]_IN
+    Info (332111):    0.833 mem_dqs[1][6]_IN
+    Info (332111):    0.833 mem_dqs[1][7]_IN
+    Info (332111):    0.833 mem_dqs[1][8]_IN
+    Info (332111):   10.000      refclk0
+    Info (332111):   10.000      refclk1
+    Info (332111):    8.000      sbr_clk
+Info (18747): Starting Fast Forward Timing Closure Recommendations analysis.
+Info (17959): Fast Forward step #1 completed.
+Info (18748): Completed Fast Forward Timing Closure Recommendations analysis.
+Info (18821): Fitter Hyper-Retimer operations ending: elapsed time is 00:02:22
+
+
