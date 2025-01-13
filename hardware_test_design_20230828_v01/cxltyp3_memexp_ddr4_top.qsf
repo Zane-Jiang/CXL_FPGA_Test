@@ -101,6 +101,16 @@ set_global_assignment -name VERILOG_MACRO RNR_B0_TILE
 
 source ./constraints/qsf_device_pinout.tcl
 
+set_global_assignment -name SYSTEMVERILOG_FILE common/afu/sketch/histogram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE common/afu/sketch/pipeline_mem_buffer.sv
+set_global_assignment -name SYSTEMVERILOG_FILE common/afu/sketch/pipeline_mem_component.sv
+set_global_assignment -name SYSTEMVERILOG_FILE common/afu/sketch/pipeline_mem_segment.sv
+set_global_assignment -name SYSTEMVERILOG_FILE common/afu/fifo_v3.sv
+set_global_assignment -name SYSTEMVERILOG_FILE common/afu/neoprof_avmm_slave.sv
+set_global_assignment -name SYSTEMVERILOG_FILE common/afu/sketch/cmsketch.sv
+set_global_assignment -name SYSTEMVERILOG_FILE common/afu/sketch/hash_block.sv
+set_global_assignment -name SYSTEMVERILOG_FILE common/afu/sketch/sketch_lane.sv
+set_global_assignment -name SYSTEMVERILOG_FILE common/afu/async_fifo.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ./common/cxl_compliance/cxl_compliance_csr_avmm_slave.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ./common/cxl_compliance/cxl_compliance_csr_top.sv
 
